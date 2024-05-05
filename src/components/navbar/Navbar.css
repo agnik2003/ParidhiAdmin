@@ -1,0 +1,75 @@
+.navbar {
+  background-color: #333;
+  padding: 10px;
+  display: flex;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+.dropdown {
+  position: absolute;
+  left: 0;
+  background-color: #555;
+  padding: 10px;
+  margin: 5px;
+  top: 15px;
+  display: flex; /* Add this line */
+  flex-direction: column; /* Add this line */
+  margin-top: 20px;
+}
+
+.nested-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  /* width: 70px; */
+  /* margin-left: 10px; */
+}
+.nested{
+  border: 2px solid black;
+}
+
+.nested-dropdown a {
+  display: block;
+  background-color: rgb(143, 0, 0); /* Add this line */
+  padding: 5px; /* Add this line for spacing */
+}
+
+.dropdown a {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  margin-right: 10px; /* Add margin between links */
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown > div {
+  position: relative;
+}
+
+.dropdown > div:hover .nested-dropdown {
+  display: block;
+}
+
+.nested-dropdown {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
+.cursor{
+  cursor: pointer;
+  padding: 5px;
+  font-size: 1.2rem;
+  color: white;
+}
