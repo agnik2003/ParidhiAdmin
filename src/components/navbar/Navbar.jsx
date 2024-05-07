@@ -118,7 +118,6 @@ const Navbar = () => {
       <div className="nav-item">
         <NavLink
           className="cursor"
-          to="/TIDshow"
           onMouseEnter={handleTIDMouseEnter}
           onMouseLeave={handleTIDMouseLeave}
           onClick={() => {
@@ -366,7 +365,6 @@ const Navbar = () => {
       <div className="nav-item">
         <NavLink
           className="cursor"
-          to="/CRDshow"
           onMouseEnter={handleCRDMouseEnter}
           onMouseLeave={handleCRDMouseLeave}
           onClick={() => {
