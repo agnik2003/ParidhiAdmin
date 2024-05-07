@@ -109,7 +109,7 @@ const Navbar = () => {
               CODING
               {showCodingDropdown && (
                 <div className="nested-dropdown">
-                  <NavLink className="cursor nested" to="/TIDshow">Bug Blitz</NavLink>
+                  <NavLink className="cursor nested"  to="/TIDshow/Coding/bugblitz">Bug Blitz</NavLink>
                   <NavLink className="cursor nested" to="/TIDshow">Web Minds</NavLink>
                   <NavLink className="cursor nested" to="/TIDshow">Code Quest</NavLink>
                   <NavLink className="cursor nested" to="/TIDshow">Codezen</NavLink>
