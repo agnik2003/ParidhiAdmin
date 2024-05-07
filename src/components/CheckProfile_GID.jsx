@@ -5,7 +5,7 @@ import "./CheckProfile_GID.css";
 const ProfileCheck_GID = () => {
   const [tid, setTid] = useState(null);
   const [data, setData] = useState(null);
-
+//yoyo
   const fetchData = (tid) => {
     // axios
     //   .get(`/your-backend-endpoint/${tid}`)
