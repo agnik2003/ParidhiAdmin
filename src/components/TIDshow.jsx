@@ -1,12 +1,26 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./TidStyle.css";
+import { useParams } from "react-router-dom";
 
 const TIDshow = () => {
   const [tid, setTid] = useState(null);
   const [data, setData] = useState(null);
   const [paid, setPaid] = useState(false);
+  const { eventName } = useParams();
 
+  const eventRegs = {
+    bugblitz: {
+      name: "BugBlitz",
+      // gidVerifyApi: `${apiUrl}/robotics/war-8kg/`,
+      // getTidApi: `${apiUrl}/robotics/war-8kg`,
+      min: 1,
+      max: 5,
+      teamname: true,
+    },
+  }
+
+console.log(eventRegs);
   const fetchData = (tid) => {
     // axios.get(`/your-backend-endpoint/${tid}`)
     //   .then(response => {
@@ -92,7 +106,7 @@ const TIDshow = () => {
                   checked={paid}
                   onChange={handlePaidToggle}
                 />
-                <span>Paisa Mila</span>
+                <span>Paid</span>
               </label>
             </div>
             <button type="submit">Submit</button>
