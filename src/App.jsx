@@ -42,8 +42,22 @@ function App() {
             <Route path="GIDshow" element={<GIDshow />} />
             <Route path="CRDshow" element={<CRDshow />} />
             <Route path="TIDshow" element={<TIDshow />} />
-            <Route path="CheckProfile_TID" element={<CheckProfile_TID />} />
-            <Route path="CheckProfile_GID" element={<CheckProfile_GID />} />
+            <Route
+              path="CheckProfile_TID"
+              element={
+                <React.Suspense fallback={<Loader />}>
+                  <CheckProfile_TID />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="CheckProfile_GID"
+              element={
+                <React.Suspense fallback={<Loader />}>
+                  <CheckProfile_GID />
+                </React.Suspense>
+              }
+            />
             <Route
               path="TIDshow/:Domain/:eventName"
               element={

@@ -611,7 +611,7 @@ const Navbar = () => {
       <div className="nav-item">
         <NavLink
           className="cursor"
-          to="/CheckProfile_TID"
+          to="CheckProfile_TID"
           onMouseEnter={handleCheckProfileMouseEnter}
           onMouseLeave={handleCheckProfileMouseLeave}
           onClick={() => {
@@ -791,7 +791,7 @@ const Navbar = () => {
 
       <NavLink
         className="cursor"
-        to="/CheckProfile_GID"
+        to="CheckProfile_GID"
         onClick={handleCloseDropdowns}
       >
         CheckProfile_GID
