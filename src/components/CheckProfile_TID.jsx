@@ -1,10 +1,78 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./CheckProfile_TID.css";
+import { useParams } from "react-router-dom";
+
 
 const ProfileCheck_TID = () => {
   const [tid, setTid] = useState(null);
   const [data, setData] = useState(null);
+  const eventInfo = {
+    
+    web_minds: {
+      name: "Web Minds",
+      api:``,
+    },
+    code_quest:{
+      name:"Codezen",
+      api:``,
+    },
+    codezen:{
+      name:"Code Quest",
+      api:``,
+    },
+    
+    roboKlassiker:{
+      name:"Robo Klassiker",
+      api:``,
+    },
+    throne_of_bots:{
+      name:"Throne of Bots",
+      api:``,
+    },
+
+    line_trekker:{
+      name:"Line Trekker",
+      api:``,
+    },
+
+    setu_bandhan:{
+      name:"Setu Bandhan",
+      api:``,
+    },
+    track_o_treasure:{
+      name:"Track o Treasure",
+      api:``,
+    },
+    mega_arch:{
+      name:"Mega Arch",
+      api:``,
+    },
+
+    electriquest:{
+      name:"Electriquest",
+      api:``,
+    },
+
+    tob8kg:{
+      name:"TOB 8kg",
+      api:``,
+    },
+    tob15kg:{
+      name:"TOB 15kg",
+      api:``,
+    },
+    
+    table_tennis:{
+      name:"Table Tennis",
+      api:``,
+    },
+    binge_quiz:{
+      name:"Binge Quiz",
+      api:``,
+    },
+  };
+  const event = eventInfo[eventName];
 
   const fetchData = (tid) => {
     // axios
