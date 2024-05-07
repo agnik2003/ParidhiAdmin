@@ -9,18 +9,16 @@ const TIDshow = () => {
   const [paid, setPaid] = useState(false);
   const { eventName } = useParams();
 
-  const eventRegs = {
+  const eventInfo = {
     bugblitz: {
       name: "BugBlitz",
-      // gidVerifyApi: `${apiUrl}/robotics/war-8kg/`,
-      // getTidApi: `${apiUrl}/robotics/war-8kg`,
-      min: 1,
       max: 5,
       teamname: true,
     },
-  }
+  };
+  const event = eventInfo[eventName];
 
-console.log(eventRegs);
+  console.log("TID", event);
   const fetchData = (tid) => {
     // axios.get(`/your-backend-endpoint/${tid}`)
     //   .then(response => {

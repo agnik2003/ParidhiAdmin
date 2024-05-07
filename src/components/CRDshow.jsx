@@ -2,11 +2,24 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Crdstyle.css";
 
+import { useParams } from "react-router-dom";
+
 const CRDshow = () => {
   const [tid, setTid] = useState(null);
   const [data, setData] = useState(null);
   const [played, setPlayed] = useState(false);
+  const { eventName } = useParams();
 
+  const eventInfo = {
+    bugblitz: {
+      name: "BugBlitz",
+      max: 5,
+      teamname: true,
+    },
+  };
+  const event = eventInfo[eventName];
+
+  console.log("CRD", event);
   const fetchData = (tid) => {
     // axios
     //   .get(`/your-backend-endpoint/${tid}`)
