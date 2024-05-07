@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Signup from './authentication/Signup';
 import Layout from './layout/Layout';
-import TIDshow from './components/TIDshow';
+// import TIDshow from './components/TIDshow';
 import CRDshow from './components/CRDshow';
 import GIDshow from './components/GIDshow';
 import CheckProfile_TID from './components/CheckProfile_TID';
 import CheckProfile_GID from './components/CheckProfile_GID';
+
+const TIDshow=React.lazy(
+  ()=>import ('./components/TIDshow')
+)
 
 
 function App() {
@@ -30,6 +34,7 @@ function App() {
             <Route path="CheckProfile_TID" element={<CheckProfile_TID />} />
             <Route path="CheckProfile_GID" element={<CheckProfile_GID />} />
 
+            <Route path="TIDshow/Coding/buglitz" element={<TIDshow />} />
             {/* <Route
               path="MAILshow"
               element={
