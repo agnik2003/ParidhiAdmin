@@ -138,12 +138,7 @@ const Navbar = () => {
               CODING
               {showCodingDropdown && (
                 <div className="nested-dropdown">
-                  <NavLink
-                    className="cursor nested"
-                    to="TIDshow/Coding/bugblitz"
-                  >
-                    Bug Blitz
-                  </NavLink>
+                  
                   <NavLink
                     className="cursor nested"
                     to="TIDshow/Coding/web_minds"
@@ -152,7 +147,7 @@ const Navbar = () => {
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="TIDshow/Coding/code_quset"
+                    to="TIDshow/Coding/code_quest"
                   >
                     Code Quest
                   </NavLink>
@@ -174,33 +169,16 @@ const Navbar = () => {
               Manual Robotics
               {showCodingDropdown && (
                 <div className="nested-dropdown">
+                  
                   <NavLink
                     className="cursor nested"
-                    to="TIDshow/manual_robotics/trilathon"
+                    to="TIDshow/manual_robotics/roboKlassiker"
                   >
-                    Trilathon
+                    Robo Klassiker
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="TIDshow/manual_robotics/roboKlassers"
-                  >
-                    Robo Klassers
-                  </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="TIDshow/manual_robotics/chakravyuh"
-                  >
-                    Chakravyuh
-                  </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="TIDshow/manual_robotics/striker_clash"
-                  >
-                    Striker Clash
-                  </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="TIDshow/manual_robotics/thron_of_bots"
+                    to="TIDshow/manual_robotics/throne_of_bots"
                   >
                     Throne of Bots
                   </NavLink>
@@ -242,17 +220,10 @@ const Navbar = () => {
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="TIDshow/civil/setu_bandhan"
+                    to="TIDshow/civil/track_o_treasure"
                   >
                     Track o Treasure
                   </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="TIDshow/civil/cadOmania"
-                  >
-                    CAD_O_MANIA
-                  </NavLink>
-                  /
                   <NavLink
                     className="cursor nested"
                     to="TIDshow/civil/mega_arch"
@@ -277,12 +248,6 @@ const Navbar = () => {
                   >
                     Electriquest
                   </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="TIDshow/electrical/power_blitz"
-                  >
-                    Power Blitz
-                  </NavLink>
                 </div>
               )}
             </div>
@@ -292,36 +257,19 @@ const Navbar = () => {
               onMouseEnter={handleCodingMouseEnter}
               onMouseLeave={handleCodingMouseLeave}
             >
-              GAMING
+              COMBAT ROBOTICS
               {showCodingDropdown && (
                 <div className="nested-dropdown">
                   <NavLink
                     className="cursor nested"
-                    to="TIDshow/gaming/valorant_lan"
+                    to="TIDshow/combat_robotics/tob8kg"
                   >
-                    Valorant LAN
+                    TOB 8kg
                   </NavLink>
-                  <NavLink className="cursor nested" to="TIDshow/gaming/bgmi">
-                    BGMI
+                  <NavLink className="cursor nested" to="TIDshow/combat_robotics/tob15kg">
+                    TOB 15kg
                   </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="TIDshow/gaming/eFootball-Pes"
-                  >
-                    E-Football_PES
-                  </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="TIDshow/gaming/efac2024"
-                  >
-                    EFAC 2024
-                  </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="TIDshow/gaming/8_ball_pool"
-                  >
-                    8 Ball Pool
-                  </NavLink>
+                  
                 </div>
               )}
             </div>
@@ -334,9 +282,6 @@ const Navbar = () => {
               General
               {showCodingDropdown && (
                 <div className="nested-dropdown">
-                  <NavLink className="cursor nested" to="TIDshow/genral/carrom">
-                    Carrom
-                  </NavLink>
                   <NavLink
                     className="cursor nested"
                     to="TIDshow/genral/table_tennis"
@@ -348,12 +293,6 @@ const Navbar = () => {
                     to="TIDshow/genral/binge_quiz"
                   >
                     Binge Quiz
-                  </NavLink>
-                  <NavLink className="cursor nested" to="TIDshow/genral/chess">
-                    CHESS
-                  </NavLink>
-                  <NavLink className="cursor nested" to="TIDshow/genral/darts">
-                    DARTS
                   </NavLink>
                 </div>
               )}
@@ -385,12 +324,7 @@ const Navbar = () => {
               CODING
               {showCodingDropdown && (
                 <div className="nested-dropdown">
-                  <NavLink
-                    className="cursor nested"
-                    to="CRDshow/Coding/bugblitz"
-                  >
-                    Bug Blitz
-                  </NavLink>
+                  
                   <NavLink
                     className="cursor nested"
                     to="CRDshow/Coding/web_minds"
@@ -399,7 +333,7 @@ const Navbar = () => {
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/Coding/code_quset"
+                    to="CRDshow/Coding/code_quest"
                   >
                     Code Quest
                   </NavLink>
@@ -418,33 +352,17 @@ const Navbar = () => {
               Manual Robotics
               {showCodingDropdown && (
                 <div className="nested-dropdown">
+                  
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/manual_robotics/trilathon"
+                    to="CRDshow/manual_robotics/roboKlassikers"
                   >
-                    Trilathon
+                    Robo Klassikers
                   </NavLink>
+                  
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/manual_robotics/roboKlassers"
-                  >
-                    Robo Klassers
-                  </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="CRDshow/manual_robotics/chakravyuh"
-                  >
-                    Chakravyuh
-                  </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="CRDshow/manual_robotics/striker_clash"
-                  >
-                    Striker Clash
-                  </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="CRDshow/manual_robotics/thron_of_bots"
+                    to="CRDshow/manual_robotics/throne_of_bots"
                   >
                     Throne of Bots
                   </NavLink>
@@ -486,15 +404,9 @@ const Navbar = () => {
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/civil/setu_bandhan"
+                    to="CRDshow/civil/Track_o_Treasure"
                   >
                     Track o Treasure
-                  </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="CRDshow/civil/cadOmania"
-                  >
-                    CAD_O_MANIA
                   </NavLink>
                   <NavLink
                     className="cursor nested"
@@ -520,12 +432,7 @@ const Navbar = () => {
                   >
                     Electriquest
                   </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="CRDshow/electrical/power_blitz"
-                  >
-                    Power Blitz
-                  </NavLink>
+                  
                 </div>
               )}
             </div>
@@ -535,36 +442,19 @@ const Navbar = () => {
               onMouseEnter={handleCodingMouseEnter}
               onMouseLeave={handleCodingMouseLeave}
             >
-              GAMING
+              COMBAT ROBOTICS
               {showCodingDropdown && (
                 <div className="nested-dropdown">
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/gaming/valorant_lan"
+                    to="CRDshow/gaming/combat_robotics/tob8kg"
                   >
-                    Valorant LAN
+                    TOB 8kg
                   </NavLink>
-                  <NavLink className="cursor nested" to="CRDshow/gaming/bgmi">
-                    BGMI
+                  <NavLink className="cursor nested" to="CRDshow/combat_robotics/tob15kg">
+                  TOB 15kg
                   </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="CRDshow/gaming/eFootball-Pes"
-                  >
-                    E-Football_PES
-                  </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="CRDshow/gaming/efac2024"
-                  >
-                    EFAC 2024
-                  </NavLink>
-                  <NavLink
-                    className="cursor nested"
-                    to="CRDshow/gaming/8_ball_pool"
-                  >
-                    8 Ball Pool
-                  </NavLink>
+                  
                 </div>
               )}
             </div>
@@ -577,9 +467,7 @@ const Navbar = () => {
               General
               {showCodingDropdown && (
                 <div className="nested-dropdown">
-                  <NavLink className="cursor nested" to="CRDshow/genral/carrom">
-                    Carrom
-                  </NavLink>
+                  
                   <NavLink
                     className="cursor nested"
                     to="CRDshow/genral/table_tennis"
@@ -592,12 +480,7 @@ const Navbar = () => {
                   >
                     Binge Quiz
                   </NavLink>
-                  <NavLink className="cursor nested" to="CRDshow/genral/chess">
-                    CHESS
-                  </NavLink>
-                  <NavLink className="cursor nested" to="CRDshow/genral/darts">
-                    DARTS
-                  </NavLink>
+                  
                 </div>
               )}
             </div>
@@ -611,7 +494,6 @@ const Navbar = () => {
       <div className="nav-item">
         <NavLink
           className="cursor"
-          to="CheckProfile_TID"
           onMouseEnter={handleCheckProfileMouseEnter}
           onMouseLeave={handleCheckProfileMouseLeave}
           onClick={() => {
@@ -632,16 +514,14 @@ const Navbar = () => {
               CODING
               {showCodingDropdown && (
                 <div className="nested-dropdown">
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    Bug Blitz
-                  </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
+                  
+                  <NavLink className="cursor nested" to="CheckProfile_TID/Coding/web_minds">
                     Web Minds
                   </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
+                  <NavLink className="cursor nested" to="CheckProfile_TID/Coding/code_quest">
                     Code Quest
                   </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
+                  <NavLink className="cursor nested" to="CheckProfile_TID/Coding/codezen">
                     Codezen
                   </NavLink>
                 </div>
@@ -656,19 +536,11 @@ const Navbar = () => {
               Manual Robotics
               {showCodingDropdown && (
                 <div className="nested-dropdown">
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    Trilathon
+                  
+                  <NavLink className="cursor nested" to="CheckProfile_TID/manual_robotics/roboKlassikers">
+                    Robo Klassikers
                   </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    Robo Klassers
-                  </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    Chakravyuh
-                  </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    Striker Clash
-                  </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
+                  <NavLink className="cursor nested" to="CheckProfile_TID/manual_robotics/thron_of_bots">
                     Throne of Bots
                   </NavLink>
                 </div>
@@ -683,7 +555,7 @@ const Navbar = () => {
               Autonomous Robotics
               {showCodingDropdown && (
                 <div className="nested-dropdown">
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
+                  <NavLink className="cursor nested" to="CheckProfile_TID/autonomous_robotics/line_trekker">
                     Line Trekker
                   </NavLink>
                 </div>
@@ -698,16 +570,14 @@ const Navbar = () => {
               CIVIL
               {showCodingDropdown && (
                 <div className="nested-dropdown">
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
+                  <NavLink className="cursor nested" to="CheckProfile_TID/civil/setu_bandhan">
                     Setu Bandhan
                   </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
+                  <NavLink className="cursor nested" to="CheckProfile_TID/civil/Track_o_Treasure">
                     Track o Treasure
                   </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    CAD_O_MANIA
-                  </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
+                  
+                  <NavLink className="cursor nested" to="CheckProfile_TID/civil/mega_arch">
                     Mega Arch
                   </NavLink>
                 </div>
@@ -722,12 +592,10 @@ const Navbar = () => {
               ELECTRICAL
               {showCodingDropdown && (
                 <div className="nested-dropdown">
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
+                  <NavLink className="cursor nested" to="CheckProfile_TID/electrical/electriquest">
                     Electriquest
                   </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    Power Blitz
-                  </NavLink>
+                  
                 </div>
               )}
             </div>
@@ -737,24 +605,16 @@ const Navbar = () => {
               onMouseEnter={handleCodingMouseEnter}
               onMouseLeave={handleCodingMouseLeave}
             >
-              GAMING
+              COMBAT ROBOTICS
               {showCodingDropdown && (
                 <div className="nested-dropdown">
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    Valorant LAN
+                  <NavLink className="cursor nested" to="CheckProfile_TID/combat_robotics/tob8kg">
+                    TOB 8kg
                   </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    BGMI
+                  <NavLink className="cursor nested" to="CheckProfile_TID/combat_robotics/tob15kg">
+                    TOB 15kg
                   </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    E-Football_PES
-                  </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    EFAC 2024
-                  </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    8 Ball Pool
-                  </NavLink>
+                  
                 </div>
               )}
             </div>
@@ -767,21 +627,14 @@ const Navbar = () => {
               General
               {showCodingDropdown && (
                 <div className="nested-dropdown">
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    Carrom
-                  </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
+                  
+                  <NavLink className="cursor nested" to="CheckProfile_TID/genral/table_tennis">
                     Table Tennis
                   </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
+                  <NavLink className="cursor nested" to="CheckProfile_TID/genral/binge_quiz">
                     Binge Quiz
                   </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    CHESS
-                  </NavLink>
-                  <NavLink className="cursor nested" to="/CheckProfile_TID">
-                    DARTS
-                  </NavLink>
+                  
                 </div>
               )}
             </div>

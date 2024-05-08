@@ -1,200 +1,215 @@
-import React, {useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import GIDDisplayBox from "./GIDDisplayBox";
-
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Signup = ({ setAuthenticated }) => {
-  const [name, setName] = useState("");
-  const [college, setCollege] = useState("");
-  const [year, setYear] = useState("");
-  const [department, setDepartment] = useState("");
-  const [roll, setRoll] = useState("");
   const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   const [isVerified, setIsVerified] = useState(false);
-  const [otpPopup, setOtpPopup] = useState(false);
-  const [showGIDBox, setShowGIDBox] = useState(false);
-
+  const [isSigningUp, setIsSigningUp] = useState(false);
+  const [password, setPassword] = useState(""); 
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phoneNumber: ''
+    name: "",
+    email: "",
+    phoneNumber: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
   const handleSignup = () => {
-    setAuthenticated(true);
-    navigate('/'); //not working
+    const dummyPassword = "PARIDHI2024"; // Dummy password
+    if (isVerified && password === dummyPassword) {
+      setIsSigningUp(true);
+      setTimeout(() => {
+        setAuthenticated(true);
+        navigate("/");
+      }, 2000);
+    } else {
+      alert("Please verify your email address before signing up.");
+    }
   };
 
-  const apiUrl = String(import.meta.env.VITE_API_MAIN);
+  
+  //the code below is the api connection for signup button
 
-  let config = {
-    url: `${apiUrl}/generate-otp?name=${name}&email=${email}`,
-    method: "post",
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "*",
-      "Access-Control-Allow-Credentials": "true",
-    },
-  };
+  // const handleSignup = async () => {
+  //   const dummyPassword = "PARIDHI2024"; // Dummy password
+  //   if (isVerified && password === dummyPassword) {
+  //     setIsSigningUp(true);
+  //     try {
+  //       // Make a POST request to your backend API
+  //       const response = await axios.post(
+  //         "YOUR_BACKEND_API_ENDPOINT", // Replace with your actual backend API endpoint
+  //         formData // Send formData to the backend
+  //       );
+  //       console.log(response.data); // Log the response from the backend
+  //       setAuthenticated(true);
+  //       navigate("/");
+  //     } catch (error) {
+  //       console.error("Error signing up:", error);
+  //       alert("Error signing up. Please try again.");
+  //     } finally {
+  //       setIsSigningUp(false);
+  //     }
+  //   } else {
+  //     alert("Please verify your email address before signing up.");
+  //   }
+  // };
 
-  const popup = () => {
-    showPopup("login-popup");
-    setTimeout(() => showPopup("hide"), 3000);
-  };
+  const apiUrl = String(import.meta.env.VITE_API_ADMIN);
+
 
   const handleVerify = async () => {
     if (!email.includes("@") || !email.includes(".")) {
       alert("Please enter a valid email address.");
     } else {
-      const response = await axios.post(
-        `${apiUrl}/generate-otp?name=${name}&email=${email}`,
-        {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "*",
-            "Access-Control-Allow-Credentials": "true",
-          },
-        }
-      );
-      console.log(response);
-      setOtpPopup(true);
-    }
-  };
+      // const response = await axios.post(
+      //   `${apiUrl}/generate-otp?name=${name}&email=${email}`,
+      //   {
+      //     headers: {
+      //       "Access-Control-Allow-Origin": "*",
+      //       "Access-Control-Allow-Headers": "*",
+      //       "Access-Control-Allow-Credentials": "true",
+      //     },
+      //   }
+      // );
+      // console.log(response);
 
-  const handleOtpSubmit = async (otp) => {
-    try {
-      // Make a POST request to the backend API endpoint to verify OTP
-      const response = await axios.post(`${apiUrl}/verify-otp`, { email, otp });
-      // console.log(apiUrl)
-      console.log(response);
-      // Check if the OTP verification is successful
-      if (response.status === 200) {
-        // If the OTP is correct, set isVerified to true and close the OTP popup
+      //to verify otp
+      // try {
+      //   const response = await axios.post(`${apiUrl}/verify-otp`, { email, otp });
+      //   console.log(response);
+
+      //   if (response.status === 200) {
+      //     setIsVerified(true);
+      //     alert("Email verified successfully!");
+      //   } else {
+      //     alert("Incorrect OTP. Please enter the correct OTP.");
+      //   }
+      // } catch (error) {
+      //   console.error("Error verifying OTP:", error);
+      //   alert("Error verifying OTP. Please try again.");
+      // }
+
+      const dummyOTP = "123456";
+      const enteredOTP = prompt("Please enter the OTP sent to your email:");
+      if (enteredOTP === dummyOTP) {
         setIsVerified(true);
-        setOtpPopup(false);
+        alert("Email verified successfully!");
       } else {
-        // If OTP verification fails, display an error message
-        setIsOtpCorrect(false);
         alert("Incorrect OTP. Please enter the correct OTP.");
       }
-    } catch (error) {
-      // Handle error, such as displaying an alert or logging the error
-      console.error("Error verifying OTP:", error);
-      alert("Error verifying OTP. Please try again.");
     }
   };
 
+  //there is no need of this function below but as the this was the verify otp function of the main website so i kept it if any problem occurs for connection
 
-  const handleSignUp = async () => {
-    if (!email.includes("@") || !email.includes(".")) {
-      alert("Please enter a valid email address.");
-    }
-    if (!isVerified) {
-      alert("Please verify your email address before signing up.");
-    }
-    if (
-      !name ||
-      !college ||
-      !year ||
-      !department ||
-      !roll ||
-      !email ||
-      !phoneNumber
-    ) {
-      alert("Please fill in all required fields.");
-    } else {
-      try {
-        const response = await axios.post(
-          `${apiUrl}/registration`,
-          {
-            name: name,
-            college: college,
-            year: year,
-            department: department,
-            roll: roll,
-            email: email,
-            phoneNumber: phoneNumber,
-            emailVerified: isVerified,
-          }
-        );
-
-       
-
-        console.log("Sign up successful:", response.data);
-        setGidResponse(response.data);
-        localStorage.setItem("user", response.data);
-        //changed
-        setShowGIDBox(true);
-        console.log(apiUrl);
-      } catch (error) {
-        console.error("Error signing up:", error);
-      }
-    }
-  };
+  // const handleOtpSubmit = async (otp) => {
+  //   try {
+  //     const response = await axios.post(`${apiUrl}/verify-otp`, { email, otp });
+  //     // console.log(apiUrl)
+  //     console.log(response);
+  //     if (response.status === 200) {
+  //       setIsVerified(true);
+  //       setOtpPopup(false);
+  //     } else {
+  //       setIsOtpCorrect(false);
+  //       alert("Incorrect OTP. Please enter the correct OTP.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error verifying OTP:", error);
+  //     alert("Error verifying OTP. Please try again.");
+  //   }
+  // };
 
   return (
     <div>
-      <h2>Signup</h2>
+      <h2
+        style={{
+          fontSize:"2rem",
+          margin:"2rem",
+        }}
+      >Signup</h2>
       <form>
-      <div>
-            {isVerified ? (
+        <div style={{
+            margin:"2rem",
+            fontSize:"1.5rem",
+            }}>Email:
+          {isVerified ? (
+            <input
+              name="email"
+              type="email"
+              placeholder="Verified"
+              readOnly
+              value={email}
+              style={{
+                fontSize:"1.5rem"
+              }}
+              
+            />
+          ) : (
+            <>
               <input
                 name="email"
                 type="email"
-                placeholder="Verified"
-                readOnly
+                placeholder="Email id"
                 value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{
+                  fontSize:"1.5rem"
+                }}
               />
-            ) : (
-              <>
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="Email id"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <button  className="Verify" onClick={handleVerify}>
-                  Verify
-                </button>
-                {/* <Button  className="Verify" style={{cursor:"not-allowed"}}>
-                  Verify
-                </Button> */}
-              </>
-            )}
-          </div>
-        
-        <div>
-          <label htmlFor="email">Password:</label>
+              <button
+                className="Verify"
+                onClick={handleVerify}
+                disabled={isVerified}
+                style={{
+                  margin:"1rem",
+                  fontSize:"1rem",
+                  }}
+              >
+                Verify
+              </button>
+            </>
+          )}
+        </div>
+
+        <div style={{
+            margin:"0 6rem 0 2rem",
+            fontSize:"1.5rem"
+          }}>
+          <label htmlFor="passoword">Password:</label>
           <input
-            type="email"
-            id="email"
+            type="password"
+            id="password"
             name="password"
-            value={formData.email}
-            onChange={handleChange}
+            value={formData.password}
+            onChange={(e) => setPassword(e.target.value)}
             required
+            style={{
+              // margin:"0 6rem 0 2rem",
+              fontSize:"1.5rem"
+            }}
           />
         </div>
-        <button type="button" onClick={handleSignup}>Sign up</button>
-        {otpPopup && (
-        <OTPVerificationPopup
-          onSubmit={handleOtpSubmit}
-          onClose={() => setOtpPopup(false)}
-        />
-      )}
-      {showGIDBox && (
-        <GIDDisplayBox gid={gidResponse} onClose={() => setShowGIDBox(false)} />
-      )}
+        <button
+          type="button"
+          onClick={handleSignup}
+          disabled={isSigningUp || !isVerified}
+          style={{
+            margin:"2rem",
+            fontSize:"1.5rem"
+          }}
+        >
+          {isSigningUp ? "Signing up..." : "Sign up"}
+        </button>
       </form>
     </div>
   );
