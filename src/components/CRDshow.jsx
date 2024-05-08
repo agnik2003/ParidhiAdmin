@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Crdstyle.css";
 import { useParams } from "react-router-dom";
-import { set } from "firebase/database";
 
 const CRDshow = () => {
   const [players, setPlayers] = useState([]);
@@ -10,68 +9,70 @@ const CRDshow = () => {
   const { eventName } = useParams();
 
   const eventInfo = {
-    
     web_minds: {
       name: "Web Minds",
-      api:``,
+      apiToGetList: `https://localhost:6001/megatronix/paridhi/admin/crd/coding/web-minds
+      `,
+      apiToSendPlayed: `https://localhost:6001/megatronix/paridhi/admin/crd/coding/web-minds/
+      `,
     },
-    code_quest:{
-      name:"Codezen",
-      api:``,
+    code_quest: {
+      name: "Codezen",
+      api: ``,
     },
-    codezen:{
-      name:"Code Quest",
-      api:``,
-    },
-    
-    roboKlassiker:{
-      name:"Robo Klassiker",
-      api:``,
-    },
-    throne_of_bots:{
-      name:"Throne of Bots",
-      api:``,
+    codezen: {
+      name: "Code Quest",
+      api: ``,
     },
 
-    line_trekker:{
-      name:"Line Trekker",
-      api:``,
+    roboKlassiker: {
+      name: "Robo Klassiker",
+      api: ``,
+    },
+    throne_of_bots: {
+      name: "Throne of Bots",
+      api: ``,
     },
 
-    setu_bandhan:{
-      name:"Setu Bandhan",
-      api:``,
-    },
-    track_o_treasure:{
-      name:"Track o Treasure",
-      api:``,
-    },
-    mega_arch:{
-      name:"Mega Arch",
-      api:``,
+    line_trekker: {
+      name: "Line Trekker",
+      api: ``,
     },
 
-    electriquest:{
-      name:"Electriquest",
-      api:``,
+    setu_bandhan: {
+      name: "Setu Bandhan",
+      api: ``,
+    },
+    track_o_treasure: {
+      name: "Track o Treasure",
+      api: ``,
+    },
+    mega_arch: {
+      name: "Mega Arch",
+      api: ``,
     },
 
-    tob8kg:{
-      name:"TOB 8kg",
-      api:``,
+    electriquest: {
+      name: "Electriquest",
+      api: ``,
     },
-    tob15kg:{
-      name:"TOB 15kg",
-      api:``,
+
+    tob8kg: {
+      name: "TOB 8kg",
+      api: ``,
     },
-    
-    table_tennis:{
-      name:"Table Tennis",
-      api:``,
+    tob15kg: {
+      name: "TOB 15kg",
+      api: ``,
     },
-    binge_quiz:{
-      name:"Binge Quiz",
-      api:``,
+
+    table_tennis: {
+      name: "Table Tennis",
+      api: ``,
+    },
+    binge_quiz: {
+      name: "Binge Quiz",
+      api: ``,
     },
   };
   const event = eventInfo[eventName];
@@ -80,23 +81,8 @@ const CRDshow = () => {
     try {
       setrunning(running + 1);
       console.log("Running", running);
-      // const response = await axios.get(`https://api/${eventName}`);
+      const response = await axios.get(event.apiToGetList);
 
-      const response = {
-        status: 200,
-        data: [
-          {
-            id: "1",
-            GID1: "1234231",
-            GID2: "123423sd1",
-            GID3: "123423sdf1",
-            GID4: "12342sfd31",
-            GID5: "123423sdfs1",
-            Number: "2727272722",
-            Played: false,
-          },
-        ],
-      };
       if (response.status === 200) {
         setPlayers(response.data);
       } else {
@@ -112,12 +98,16 @@ const CRDshow = () => {
       const updatedPlayer = { ...player, Played: true };
 
       console.log("Player Data with Played true:", updatedPlayer);
-      // const response = await axios.put(`https://api/${eventName}`, updatedPlayer);
-      const response = { status: 200 };
+      const response = await axios.put(
+        `${event.apiToSendPlayed}${updatedPlayer.TID}/${updatedPlayer.Played}`
+      );
+
+      // const response = { status: 200 };
 
       if (response.status === 200) {
         listOfParticipants();
       } else if (response.status === 400) {
+        alert("some error occured");
       }
     } catch (error) {
       console.error("Error performing action:", error);
@@ -141,6 +131,7 @@ const CRDshow = () => {
             <tr>
               <th>ID</th>
               <th>Number</th>
+              <th>TID</th>
               <th>GID1</th>
               <th>GID2</th>
               <th>GID3</th>
@@ -151,10 +142,11 @@ const CRDshow = () => {
             </tr>
           </thead>
           <tbody>
-            {players.map((player) => (
+            {players?.map((player) => (
               <tr key={player.id}>
                 <td>{player.id}</td>
                 <td>{player.Number}</td>
+                <td>{player.TID}</td>
                 <td>{player.GID1}</td>
                 <td>{player.GID2}</td>
                 <td>{player.GID3}</td>

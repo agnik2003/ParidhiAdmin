@@ -1,0 +1,57 @@
+.hero{
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    margin-top: 6rem;
+    width: 50%;
+    /* margin: auto; */
+    margin-left: 26rem;
+}
+
+.sign-form{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    /* border: 2px solid black; */
+    /* margin-top: 5rem .0rem 0 7rem; */
+    width: 70%;
+    margin-left: 70px ;
+    padding: 12px;
+ 
+    
+}
+.opt{
+    text-align: start;
+    margin-block: 15px;
+}
+.otp-input{
+    width: 59%;
+    height: 2rem;
+}
+.otp-label{
+    font-size: 1.5rem;
+}
+.input{
+    display: flex;
+    /* justify-content: center; */
+}
+.Verify{
+    font-size: 1rem;
+    padding-block: 6px;
+    margin-left: 10px;
+}
+.submit{
+    font-size: 1rem;
+    padding-block: 6px;
+    margin-left: 10px;
+}
+.sign-btn{
+    padding-block: 5px;
+    margin-left: 10px;
+}
+.password-input{
+    display: block;
+}
