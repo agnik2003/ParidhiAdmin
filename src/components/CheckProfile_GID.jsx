@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import axios from "axios";
 import "./CheckProfile_GID.css";
 
@@ -6,12 +6,15 @@ const ProfileCheck_GID = () => {
   const [gid, setGid] = useState(null);
   const [data, setData] = useState(null);
 
-  const fetchData = (gid) => {
+  const apiUrl = String(import.meta.env.VITE_API_ADMIN);
+
+  const fetchData = async (gid) => {
     try {
-      //const response = await axios.get(`https://api/${gid}`)
+      const response = await axios.get(`${apiUrl}/check-gid/${gid}`);
 
       if (response.status === 200) {
         setData(response);
+        console.log(response);
       } else if (response.status === 404) {
         alert("No data found");
       } else {
@@ -33,7 +36,7 @@ const ProfileCheck_GID = () => {
       <div className="input-section">
         <input
           type="text"
-          value={tid === null ? "" : tid}
+          value={gid === null ? "" : gid}
           onChange={(e) => setGid(e.target.value)}
           placeholder="Enter TID"
         />

@@ -99,5 +99,5 @@ const GIDshow = () => {
     </div>
   );
 };
-
+}
 export default GIDshow;
