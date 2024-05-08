@@ -3,73 +3,73 @@ import axios from "axios";
 import "./CheckProfile_TID.css";
 import { useParams } from "react-router-dom";
 
-
 const ProfileCheck_TID = () => {
   const [tid, setTid] = useState(null);
   const [data, setData] = useState(null);
+  const { eventName } = useParams();
+
   const eventInfo = {
-    
     web_minds: {
       name: "Web Minds",
-      api:``,
+      api: ``,
     },
-    code_quest:{
-      name:"Codezen",
-      api:``,
+    code_quest: {
+      name: "Codezen",
+      api: ``,
     },
-    codezen:{
-      name:"Code Quest",
-      api:``,
-    },
-    
-    roboKlassiker:{
-      name:"Robo Klassiker",
-      api:``,
-    },
-    throne_of_bots:{
-      name:"Throne of Bots",
-      api:``,
+    codezen: {
+      name: "Code Quest",
+      api: ``,
     },
 
-    line_trekker:{
-      name:"Line Trekker",
-      api:``,
+    roboKlassiker: {
+      name: "Robo Klassiker",
+      api: ``,
+    },
+    throne_of_bots: {
+      name: "Throne of Bots",
+      api: ``,
     },
 
-    setu_bandhan:{
-      name:"Setu Bandhan",
-      api:``,
-    },
-    track_o_treasure:{
-      name:"Track o Treasure",
-      api:``,
-    },
-    mega_arch:{
-      name:"Mega Arch",
-      api:``,
+    line_trekker: {
+      name: "Line Trekker",
+      api: ``,
     },
 
-    electriquest:{
-      name:"Electriquest",
-      api:``,
+    setu_bandhan: {
+      name: "Setu Bandhan",
+      api: ``,
+    },
+    track_o_treasure: {
+      name: "Track o Treasure",
+      api: ``,
+    },
+    mega_arch: {
+      name: "Mega Arch",
+      api: ``,
     },
 
-    tob8kg:{
-      name:"TOB 8kg",
-      api:``,
+    electriquest: {
+      name: "Electriquest",
+      api: ``,
     },
-    tob15kg:{
-      name:"TOB 15kg",
-      api:``,
+
+    tob8kg: {
+      name: "TOB 8kg",
+      api: ``,
     },
-    
-    table_tennis:{
-      name:"Table Tennis",
-      api:``,
+    tob15kg: {
+      name: "TOB 15kg",
+      api: ``,
     },
-    binge_quiz:{
-      name:"Binge Quiz",
-      api:``,
+
+    table_tennis: {
+      name: "Table Tennis",
+      api: ``,
+    },
+    binge_quiz: {
+      name: "Binge Quiz",
+      api: ``,
     },
   };
   const event = eventInfo[eventName];
@@ -123,14 +123,15 @@ const ProfileCheck_TID = () => {
             <strong>Selected Coding Event:</strong> {data.selectedcodingevent}
           </p>
           <p>
+            <strong>Number 1:</strong> {data.number1}
+          </p>
+          <p>
             <strong>GID 1:</strong> {data.gid1}
           </p>
           <p>
             <strong>GID 2:</strong> {data.gid2}
           </p>
-          <p>
-            <strong>Number 1:</strong> {data.number1}
-          </p>
+
           <p>
             <strong>TID:</strong> {data.tid}
           </p>

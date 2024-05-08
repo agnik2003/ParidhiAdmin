@@ -10,107 +10,132 @@ const TIDshow = () => {
   const { eventName } = useParams();
 
   const eventInfo = {
-    
     web_minds: {
       name: "Web Minds",
-      api:``,
+      apiToGetData: ``,
+      apiToSendData: ``,
     },
-    code_quest:{
-      name:"Codezen",
-      api:``,
+    code_quest: {
+      name: "Codezen",
+      apiToGetData: ``,
+      apiToSendData: ``,
     },
-    codezen:{
-      name:"Code Quest",
-      api:``,
-    },
-    
-    roboKlassiker:{
-      name:"Robo Klassiker",
-      api:``,
-    },
-    throne_of_bots:{
-      name:"Throne of Bots",
-      api:``,
+    codezen: {
+      name: "Code Quest",
+      apiToGetData: ``,
+      apiToSendData: ``,
     },
 
-    line_trekker:{
-      name:"Line Trekker",
-      api:``,
+    roboKlassiker: {
+      name: "Robo Klassiker",
+      apiToGetData: ``,
+      apiToSendData: ``,
+    },
+    throne_of_bots: {
+      name: "Throne of Bots",
+      apiToGetData: ``,
+      apiToSendData: ``,
     },
 
-    setu_bandhan:{
-      name:"Setu Bandhan",
-      api:``,
-    },
-    track_o_treasure:{
-      name:"Track o Treasure",
-      api:``,
-    },
-    mega_arch:{
-      name:"Mega Arch",
-      api:``,
+    line_trekker: {
+      name: "Line Trekker",
+      apiToGetData: ``,
+      apiToSendData: ``,
     },
 
-    electriquest:{
-      name:"Electriquest",
-      api:``,
+    setu_bandhan: {
+      name: "Setu Bandhan",
+      apiToGetData: ``,
+      apiToSendData: ``,
+    },
+    track_o_treasure: {
+      name: "Track o Treasure",
+      apiToGetData: ``,
+      apiToSendData: ``,
+    },
+    mega_arch: {
+      name: "Mega Arch",
+      apiToGetData: ``,
+      apiToSendData: ``,
     },
 
-    tob8kg:{
-      name:"TOB 8kg",
-      api:``,
+    electriquest: {
+      name: "Electriquest",
+      apiToGetData: ``,
+      apiToSendData: ``,
     },
-    tob15kg:{
-      name:"TOB 15kg",
-      api:``,
+
+    tob8kg: {
+      name: "TOB 8kg",
+      apiToGetData: ``,
+      apiToSendData: ``,
     },
-    
-    table_tennis:{
-      name:"Table Tennis",
-      api:``,
+    tob15kg: {
+      name: "TOB 15kg",
+      apiToGetData: ``,
+      apiToSendData: ``,
     },
-    binge_quiz:{
-      name:"Binge Quiz",
-      api:``,
+
+    table_tennis: {
+      name: "Table Tennis",
+      apiToGetData: ``,
+      apiToSendData: ``,
+    },
+    binge_quiz: {
+      name: "Binge Quiz",
+      apiToGetData: ``,
+      apiToSendData: ``,
     },
   };
   const event = eventInfo[eventName];
 
   console.log("TID", event);
-  const fetchData = (tid) => {
-    // axios.get(`/your-backend-endpoint/${tid}`)
-    //   .then(response => {
-    //     setData(response.data);
-    //     setPaid(response.data.paid);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error fetching data:', error);
-    //   });
-    const response = {
-      id: 123,
-      teamname: "Team A",
-      selectedcodingevent: "codequest",
-      gid1: "abc123",
-      gid2: "def456",
-      number1: "9876543210",
-      tid: "tid123",
-      played: false,
-      paid: false,
-    };
-    setData(response);
-    setPaid(response.paid);
+  const fetchData = async (tid) => {
+    try {
+      const response = await axios.get(`https://api/${tid}`);
+      // const response = {
+      //   id: 123,
+      //   teamname: "Team A",
+      //   selectedcodingevent: "codequest",
+      //   gid1: "abc123",
+      //   gid2: "def456",
+      //   number1: "9876543210",
+      //   tid: "tid123",
+      //   played: false,
+      //   paid: false,
+      // };
+      if (response.status === 200) {
+        setData(response);
+        setPaid(response.paid);
+      } else if (response.status === 404) {
+        alert("No data found");
+      } else {
+        alert("Some error occured");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   const handlePaidToggle = () => {
     setPaid(!paid);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (tid && data) {
       const updatedData = { ...data, paid: paid };
       console.log("Updated Data to be sent to the backend:", updatedData);
-      // Example: axios.post('/your-backend-endpoint', updatedData).then(...).catch(...)
+      try {
+        // Example: const response = axios.post('/your-backend-endpoint', updatedData)
+        if (response.status === 200) {
+          alert("Data updated successfully");
+        } else if (response.status === 400) {
+          alert("some error occured");
+        }
+      } catch (error) {
+        console.error("Error sending data:", error);
+      }
     }
   };
 
@@ -147,6 +172,15 @@ const TIDshow = () => {
               <strong>GID 2:</strong> {data.gid2}
             </p>
             <p>
+              <strong>GID 3:</strong> {data.gid3}
+            </p>
+            <p>
+              <strong>GID 4:</strong> {data.gid4}
+            </p>
+            <p>
+              <strong>GID 5:</strong> {data.gid5}
+            </p>
+            <p>
               <strong>Number 1:</strong> {data.number1}
             </p>
             <p>
@@ -165,7 +199,15 @@ const TIDshow = () => {
                 <span>Paid</span>
               </label>
             </div>
-            <button type="submit">Submit</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                tidBankendHandler();
+              }}
+              type="submit"
+            >
+              Submit
+            </button>
           </>
         )}
       </form>

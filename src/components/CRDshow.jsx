@@ -11,14 +11,10 @@ const CRDshow = () => {
   const eventInfo = {
     web_minds: {
       name: "Web Minds",
-<<<<<<< HEAD
-      api: ``,
-=======
       apiToGetList: `https://localhost:6001/megatronix/paridhi/admin/crd/coding/web-minds
       `,
       apiToSendPlayed: `https://localhost:6001/megatronix/paridhi/admin/crd/coding/web-minds/
       `,
->>>>>>> 7c7531c5151fbc4407ded072d7b5dab427807f7b
     },
     code_quest: {
       name: "Codezen",
@@ -99,11 +95,11 @@ const CRDshow = () => {
 
   const handleAction = async (player) => {
     try {
-      const updatedPlayer = { ...player, Played: true };
-
+      const updatedPlayer = { ...player, played: true };
       console.log("Player Data with Played true:", updatedPlayer);
+
       const response = await axios.put(
-        `${event.apiToSendPlayed}${updatedPlayer.TID}/${updatedPlayer.Played}`
+        `${event.apiToSendPlayed}${updatedPlayer.tid}/${updatedPlayer.played}`
       );
 
       // const response = { status: 200 };
@@ -135,6 +131,7 @@ const CRDshow = () => {
             <tr>
               <th>ID</th>
               <th>Number</th>
+              <th>Team Name</th>
               <th>TID</th>
               <th>GID1</th>
               <th>GID2</th>
@@ -149,16 +146,17 @@ const CRDshow = () => {
             {players?.map((player) => (
               <tr key={player.id}>
                 <td>{player.id}</td>
-                <td>{player.Number}</td>
-                <td>{player.TID}</td>
-                <td>{player.GID1}</td>
-                <td>{player.GID2}</td>
-                <td>{player.GID3}</td>
-                <td>{player.GID4}</td>
-                <td>{player.GID5}</td>
-                <td>{player.Played ? "Played" : "Not Played"}</td>
+                <td>{player.number1}</td>
+                <td>{player.teamname}</td>
+                <td>{player.tid}</td>
+                <td>{player.gid1}</td>
+                <td>{player.gid2}</td>
+                <td>{player.gid3}</td>
+                <td>{player.gid4}</td>
+                <td>{player.gid5}</td>
+                <td>{player.played ? "Played" : "Not Played"}</td>
                 <td>
-                  {!player.Played && (
+                  {!player.played && (
                     <button onClick={() => handleAction(player)}>Action</button>
                   )}
                 </td>
