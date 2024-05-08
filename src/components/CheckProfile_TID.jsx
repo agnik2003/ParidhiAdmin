@@ -74,27 +74,19 @@ const ProfileCheck_TID = () => {
   };
   const event = eventInfo[eventName];
 
-  const fetchData = (tid) => {
-    // axios
-    //   .get(`/your-backend-endpoint/${tid}`)
-    //   .then((response) => {
-    //     setData(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error fetching data:", error);
-    //   });
-    const response = {
-      id: 123,
-      teamname: "Team A",
-      selectedcodingevent: "codequest",
-      gid1: "abc123",
-      gid2: "def456",
-      number1: "9876543210",
-      tid: "tid123",
-      played: false,
-      paid: true,
-    };
-    setData(response);
+  const fetchData = async (tid) => {
+    try {
+      const response = await axios.get(`https://api/${event.api}/${tid}`);
+      if (response.status === 200) {
+        setData(response.data);
+      } else if (response.status === 404) {
+        alert("No data found");
+      } else {
+        alert("Some error occured");
+      }
+    } catch (error) {
+      console.log("Error", error);
+    }
   };
 
   const handleButtonClick = () => {
@@ -136,10 +128,10 @@ const ProfileCheck_TID = () => {
             <strong>TID:</strong> {data.tid}
           </p>
           <p>
-            <strong>Played:</strong> {data.played ? "Yes" : "No"}
+            <strong>Played:</strong> {data.played}
           </p>
           <p>
-            <strong>Paid:</strong> {data.paid ? "Yes" : "No"}
+            <strong>Paid:</strong> {data.paid}
           </p>
         </div>
       )}
