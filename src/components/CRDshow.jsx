@@ -10,68 +10,67 @@ const CRDshow = () => {
   const { eventName } = useParams();
 
   const eventInfo = {
-    
     web_minds: {
       name: "Web Minds",
-      api:``,
+      api: ``,
     },
-    code_quest:{
-      name:"Codezen",
-      api:``,
+    code_quest: {
+      name: "Codezen",
+      api: ``,
     },
-    codezen:{
-      name:"Code Quest",
-      api:``,
-    },
-    
-    roboKlassiker:{
-      name:"Robo Klassiker",
-      api:``,
-    },
-    throne_of_bots:{
-      name:"Throne of Bots",
-      api:``,
+    codezen: {
+      name: "Code Quest",
+      api: ``,
     },
 
-    line_trekker:{
-      name:"Line Trekker",
-      api:``,
+    roboKlassiker: {
+      name: "Robo Klassiker",
+      api: ``,
+    },
+    throne_of_bots: {
+      name: "Throne of Bots",
+      api: ``,
     },
 
-    setu_bandhan:{
-      name:"Setu Bandhan",
-      api:``,
-    },
-    track_o_treasure:{
-      name:"Track o Treasure",
-      api:``,
-    },
-    mega_arch:{
-      name:"Mega Arch",
-      api:``,
+    line_trekker: {
+      name: "Line Trekker",
+      api: ``,
     },
 
-    electriquest:{
-      name:"Electriquest",
-      api:``,
+    setu_bandhan: {
+      name: "Setu Bandhan",
+      api: ``,
+    },
+    track_o_treasure: {
+      name: "Track o Treasure",
+      api: ``,
+    },
+    mega_arch: {
+      name: "Mega Arch",
+      api: ``,
     },
 
-    tob8kg:{
-      name:"TOB 8kg",
-      api:``,
+    electriquest: {
+      name: "Electriquest",
+      api: ``,
     },
-    tob15kg:{
-      name:"TOB 15kg",
-      api:``,
+
+    tob8kg: {
+      name: "TOB 8kg",
+      api: ``,
     },
-    
-    table_tennis:{
-      name:"Table Tennis",
-      api:``,
+    tob15kg: {
+      name: "TOB 15kg",
+      api: ``,
     },
-    binge_quiz:{
-      name:"Binge Quiz",
-      api:``,
+
+    table_tennis: {
+      name: "Table Tennis",
+      api: ``,
+    },
+    binge_quiz: {
+      name: "Binge Quiz",
+      api: ``,
     },
   };
   const event = eventInfo[eventName];
