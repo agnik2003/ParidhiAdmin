@@ -176,9 +176,16 @@ const Navbar = () => {
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="TIDshow/manual_robotics/throne_of_bots"
+                    to="TIDshow/manual_robotics/throne_of_bots_8kg"
                   >
-                    Throne of Bots
+                    Throne of Bots 8kg
+                  </NavLink>
+
+                  <NavLink
+                    className="cursor nested"
+                    to="TIDshow/manual_robotics/throne_of_bots_15kg"
+                  >
+                    Throne of Bots 15kg
                   </NavLink>
                 </div>
               )}
@@ -363,9 +370,16 @@ const Navbar = () => {
 
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/manual_robotics/throne_of_bots"
+                    to="CRDshow/manual_robotics/throne_of_bots_8kg"
                   >
-                    Throne of Bots
+                    Throne of Bots 8kg
+                  </NavLink>
+
+                  <NavLink
+                    className="cursor nested"
+                    to="CRDshow/manual_robotics/throne_of_bots_15kg"
+                  >
+                    Throne of Bots 15 kg
                   </NavLink>
                 </div>
               )}
@@ -552,9 +566,16 @@ const Navbar = () => {
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="CheckProfile_TID/manual_robotics/thron_of_bots"
+                    to="CheckProfile_TID/manual_robotics/thron_of_bots_8kg"
                   >
-                    Throne of Bots
+                    Throne of Bots 8kg
+                  </NavLink>
+
+                  <NavLink
+                    className="cursor nested"
+                    to="CheckProfile_TID/manual_robotics/thron_of_bots_15kg"
+                  >
+                    Throne of Bots 15kg
                   </NavLink>
                 </div>
               )}

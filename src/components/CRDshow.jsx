@@ -21,8 +21,8 @@ const CRDshow = () => {
     },
     codezen: {
       name: "CodeZen",
-      apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/coding/code-zen`,
-      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/coding/code-zen/`,
+      apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/coding/codezen`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/coding/codezen/`,
       api: ``,
     },
 
@@ -55,30 +55,36 @@ const CRDshow = () => {
     },
     mega_arch: {
       name: "Mega Arch",
-      api: ``,
+      apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/mega-arch`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/mega-arch/`,
     },
 
     electriquest: {
       name: "Electriquest",
-      api: ``,
+      apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/electri-quest`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/electri-quest/`,
     },
 
     tob8kg: {
       name: "TOB 8kg",
-      api: ``,
+      apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/war-8kg`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/war-8kg/`,
     },
     tob15kg: {
       name: "TOB 15kg",
-      api: ``,
+      apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/war-15kg`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/war-15kg/`,
     },
 
     table_tennis: {
       name: "Table Tennis",
-      api: ``,
+      apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/general/table-tennis`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/general/table-tennis/`,
     },
     binge_quiz: {
       name: "Binge Quiz",
-      api: ``,
+      apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/general/binge-quiz`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/general/binge-quiz/`,
     },
   };
   const event = eventInfo[eventName];
