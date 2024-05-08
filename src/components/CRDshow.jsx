@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Crdstyle.css";
 import { useParams } from "react-router-dom";
-import { set } from "firebase/database";
 
 const CRDshow = () => {
   const [players, setPlayers] = useState([]);
@@ -12,7 +11,14 @@ const CRDshow = () => {
   const eventInfo = {
     web_minds: {
       name: "Web Minds",
+<<<<<<< HEAD
       api: ``,
+=======
+      apiToGetList: `https://localhost:6001/megatronix/paridhi/admin/crd/coding/web-minds
+      `,
+      apiToSendPlayed: `https://localhost:6001/megatronix/paridhi/admin/crd/coding/web-minds/
+      `,
+>>>>>>> 7c7531c5151fbc4407ded072d7b5dab427807f7b
     },
     code_quest: {
       name: "Codezen",
@@ -79,23 +85,8 @@ const CRDshow = () => {
     try {
       setrunning(running + 1);
       console.log("Running", running);
-      // const response = await axios.get(`https://api/${eventName}`);
+      const response = await axios.get(event.apiToGetList);
 
-      const response = {
-        status: 200,
-        data: [
-          {
-            id: "1",
-            GID1: "1234231",
-            GID2: "123423sd1",
-            GID3: "123423sdf1",
-            GID4: "12342sfd31",
-            GID5: "123423sdfs1",
-            Number: "2727272722",
-            Played: false,
-          },
-        ],
-      };
       if (response.status === 200) {
         setPlayers(response.data);
       } else {
@@ -111,12 +102,16 @@ const CRDshow = () => {
       const updatedPlayer = { ...player, Played: true };
 
       console.log("Player Data with Played true:", updatedPlayer);
-      // const response = await axios.put(`https://api/${eventName}`, updatedPlayer);
-      const response = { status: 200 };
+      const response = await axios.put(
+        `${event.apiToSendPlayed}${updatedPlayer.TID}/${updatedPlayer.Played}`
+      );
+
+      // const response = { status: 200 };
 
       if (response.status === 200) {
         listOfParticipants();
       } else if (response.status === 400) {
+        alert("some error occured");
       }
     } catch (error) {
       console.error("Error performing action:", error);
@@ -140,6 +135,7 @@ const CRDshow = () => {
             <tr>
               <th>ID</th>
               <th>Number</th>
+              <th>TID</th>
               <th>GID1</th>
               <th>GID2</th>
               <th>GID3</th>
@@ -150,10 +146,11 @@ const CRDshow = () => {
             </tr>
           </thead>
           <tbody>
-            {players.map((player) => (
+            {players?.map((player) => (
               <tr key={player.id}>
                 <td>{player.id}</td>
                 <td>{player.Number}</td>
+                <td>{player.TID}</td>
                 <td>{player.GID1}</td>
                 <td>{player.GID2}</td>
                 <td>{player.GID3}</td>

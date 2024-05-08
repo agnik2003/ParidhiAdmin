@@ -1,0 +1,11 @@
+.container{
+/* flex-direction: column; */
+border: 2px solid black;
+width: 40rem;
+margin: auto;
+}
+.contain{
+    display: flex;
+    flex-direction: column;
+    width: 23rem;
+}
