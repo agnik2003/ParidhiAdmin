@@ -12,7 +12,7 @@ const TIDshow = () => {
   const eventInfo = {
     web_minds: {
       name: "Web Minds",
-      apiToGetData: ``,
+      apiToGetData: `http://localhost:6001/megatronix/paridhi/admin/crd/coding/web-minds`,
       apiToSendData: ``,
     },
     code_quest: {
