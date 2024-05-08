@@ -403,7 +403,7 @@ const Navbar = () => {
                   >
                     Code Quest
                   </NavLink>
-                  <NavLink className="cursor nested" to="CRDshowCoding/codezen">
+                  <NavLink className="cursor nested" to="CRDshow/Coding/codezen">
                     Codezen
                   </NavLink>
                 </div>

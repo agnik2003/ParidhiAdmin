@@ -1,29 +1,23 @@
-.your-played-component {
-  max-width: 400px;
-  margin: 0 auto;
-}
+.main {
 
-.input-section {
-  margin-bottom: 20px;
+  min-height: 90vh;
+  width: 100vw;
+  border: 4px solid black;
+  background-color: #f1f1f1;
+  
 }
-
-.input-section input {
-  padding: 8px;
-  width: 200px;
-  margin-right: 10px;
-}
-
-.form-section {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.form-section p {
-  margin: 10px 0;
-}
-
-.played-section label {
+.table{
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+}
+table {
+  width: 90%;
+text-align: center;
+
+}
+table, th, td {
+  border:1px solid black;
+  font-size: 1.5rem;
 }
