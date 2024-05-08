@@ -3,37 +3,28 @@ import axios from "axios";
 import "./CheckProfile_GID.css";
 
 const ProfileCheck_GID = () => {
-  const [tid, setTid] = useState(null);
+  const [gid, setGid] = useState(null);
   const [data, setData] = useState(null);
 
-  const fetchData = (tid) => {
-  //const response = await axios.get(`https://api/${tid}`)
-    const response = {
-      status: 200,
-      data: {
-        id: 123,
-        teamname: "Team A",
-        selectedcodingevent: "codequest",
-        gid1: "abc123",
-        gid2: "def456",
-        number1: "9876543210",
-        tid: "tid123",
-        played: false,
-        paid: true,
-      },
-    };
-    if (response.status === 200) {
-      setData(response);
-    } else if (response.status === 404) {
-      alert("No data found");
-    } else {
-      alert("Some error occured");
+  const fetchData = (gid) => {
+    try {
+      //const response = await axios.get(`https://api/${gid}`)
+
+      if (response.status === 200) {
+        setData(response);
+      } else if (response.status === 404) {
+        alert("No data found");
+      } else {
+        alert("Some error occured");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
   };
 
   const handleButtonClick = () => {
-    if (tid) {
-      fetchData(tid);
+    if (gid) {
+      fetchData(gid);
     }
   };
 
@@ -43,7 +34,7 @@ const ProfileCheck_GID = () => {
         <input
           type="text"
           value={tid === null ? "" : tid}
-          onChange={(e) => setTid(e.target.value)}
+          onChange={(e) => setGid(e.target.value)}
           placeholder="Enter TID"
         />
         <button onClick={handleButtonClick}>Check Profile</button>
@@ -69,10 +60,10 @@ const ProfileCheck_GID = () => {
             <strong>TID:</strong> {data.tid}
           </p>
           <p>
-            <strong>Played:</strong> {data.played ? "Yes" : "No"}
+            <strong>Played:</strong> {data.played}
           </p>
           <p>
-            <strong>Paid:</strong> {data.paid ? "Yes" : "No"}
+            <strong>Paid:</strong> {data.paid}
           </p>
         </div>
       )}
