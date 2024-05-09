@@ -87,16 +87,19 @@ const CRDshow = () => {
     try {
       setrunning(running + 1);
       console.log("Running", running);
+
       const response = await axios.get(event.apiToGetList);
+
       console.log("Response", response);
 
       if (response.status === 200) {
         setPlayers(response.data);
-      } else {
+      } else if (response.status === 404) {
         alert("No data found");
       }
     } catch (error) {
       console.error("Error fetching participant list:", error);
+      alert("Something went wrong");
     }
   };
 
@@ -104,7 +107,9 @@ const CRDshow = () => {
     try {
       const updatedPlayer = { ...player, played: true };
       console.log("Player Data with Played true:", updatedPlayer);
-      console.log(`${event.apiToSendPlayed}${updatedPlayer.tid}/${updatedPlayer.played}`);
+      console.log(
+        `${event.apiToSendPlayed}${updatedPlayer.tid}/${updatedPlayer.played}`
+      );
       const response = await axios.put(
         `${event.apiToSendPlayed}${updatedPlayer.tid}/${updatedPlayer.played}`
       );
@@ -121,58 +126,68 @@ const CRDshow = () => {
     }
   };
 
+  const twoStepCheck = (player) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to perform this action?"
+    );
+    if (confirmed) {
+      handleAction(player);
+    } else {
+      console.log("action was cancled");
+    }
+  };
   useEffect(() => {
     listOfParticipants();
   }, []);
 
   return (
     <div className="main">
-    <div className="heading">
-      <h1 style={{ textAlign: "center" }}>
-        {event ? event.name : "Event Not Found"}
-      </h1>
-    </div>
-    <div className="table">
-      <table style={{ border: "2px solid black" }}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Number</th>
-            <th>Team Name</th>
-            <th>TID</th>
-            <th>GID1</th>
-            <th>GID2</th>
-            <th>GID3</th>
-            <th>GID4</th>
-            <th>GID5</th>
-            <th>Played</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {players?.map((player) => (
-            <tr key={player.id}>
-              <td>{player.id}</td>
-              <td>{player.number1}</td>
-              <td>{player.teamname}</td>
-              <td>{player.tid}</td>
-              <td>{player.gid1}</td>
-              <td>{player.gid2}</td>
-              <td>{player.gid3}</td>
-              <td>{player.gid4}</td>
-              <td>{player.gid5}</td>
-              <td>{player.played ? "Played" : "Not Played"}</td>
-              <td>
-                {!player.played && (
-                  <button onClick={() => handleAction(player)}>Action</button>
-                )}
-              </td>
+      <div className="heading">
+        <h1 style={{ textAlign: "center" }}>
+          {event ? event.name : "Event Not Found"}
+        </h1>
+      </div>
+      <div className="table">
+        <table style={{ border: "2px solid black" }}>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Number</th>
+              <th>Team Name</th>
+              <th>TID</th>
+              <th>GID1</th>
+              <th>GID2</th>
+              <th>GID3</th>
+              <th>GID4</th>
+              <th>GID5</th>
+              <th>Played</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {players?.map((player) => (
+              <tr key={player.id}>
+                <td>{player.id}</td>
+                <td>{player.number1}</td>
+                <td>{player.teamname}</td>
+                <td>{player.tid}</td>
+                <td>{player.gid1}</td>
+                <td>{player.gid2}</td>
+                <td>{player.gid3}</td>
+                <td>{player.gid4}</td>
+                <td>{player.gid5}</td>
+                <td>{player.played ? "Played" : "Not Played"}</td>
+                <td>
+                  {!player.played && (
+                    <button onClick={() => twoStepCheck(player)}>Action</button>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
   );
 };
 

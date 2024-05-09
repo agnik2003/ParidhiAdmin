@@ -7,16 +7,16 @@ const GIDshow = () => {
   const [data, setData] = useState(null);
   const [paid, setPaid] = useState(false);
 
-  const fetchData = (gid) => {
+  const fetchData = async (gid) => {
     try {
-      const response = axios.get(`https://api/${gid}`);
+      const response = await axios.get(`https://api/${gid}`);
       if (response.status === 200) {
         setData(response.data);
-        setPaid(response.paid);
+        setPaid(response.data.paid);
       } else if (response.status === 404) {
         alert("No data found");
       } else {
-        alert("Some error occured");
+        alert("Some error occurred");
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -27,16 +27,24 @@ const GIDshow = () => {
     setPaid(!paid);
   };
 
-  const handleSubmit =  async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (gid && data) {
       const updatedData = { ...data, paid: paid };
       console.log("Updated Data to be sent to the backend:", updatedData);
-     const response = axios.post('/your-backend-endpoint', updatedData)
-      if (response.status === 200) {
-        alert("Data updated successfully");
-      } else if (response.status === 400) {
-        alert("some error occured");
+      try {
+        const response = await axios.post(
+          "/your-backend-endpoint",
+          updatedData
+        );
+        if (response.status === 200) {
+          alert("Data updated successfully");
+        } else if (response.status === 400) {
+          alert("Some error occurred");
+        }
+      } catch (error) {
+        console.error("Error updating data:", error);
+      }
     }
   };
 

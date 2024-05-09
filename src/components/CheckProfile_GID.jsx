@@ -6,9 +6,9 @@ const ProfileCheck_GID = () => {
   const [gid, setGid] = useState(null);
   const [data, setData] = useState(null);
 
-  const fetchData = (gid) => {
+  const fetchData = async (gid) => {
     try {
-      //const response = await axios.get(`https://api/${gid}`)
+      const response = await axios.get(`https://api/${gid}`);
 
       if (response.status === 200) {
         setData(response);
@@ -33,7 +33,7 @@ const ProfileCheck_GID = () => {
       <div className="input-section">
         <input
           type="text"
-          value={tid === null ? "" : tid}
+          value={gid === null ? "" : gid}
           onChange={(e) => setGid(e.target.value)}
           placeholder="Enter TID"
         />
