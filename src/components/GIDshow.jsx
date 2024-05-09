@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useState,useEffect} from "react";
 import axios from "axios";
 import "./Gidstyle.css";
+import { useParams, useNavigate } from "react-router-dom";
 
 const GIDshow = () => {
+  const navigate = useNavigate();
   const [gid, setGid] = useState(null);
   const [data, setData] = useState(null);
   const [paid, setPaid] = useState(false);
 
   const apiUrl = String(import.meta.env.VITE_API_ADMIN);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("isLoggedIn")) {
+      navigate("/login");
+    } else {
+      
+    }
+  }, []);
   const fetchData = async (gid) => {
     try {
       const response = await axios.get(`${apiUrl}/check-gid/${gid}`);

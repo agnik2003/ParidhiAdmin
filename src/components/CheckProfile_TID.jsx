@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 import "./CheckProfile_TID.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const ProfileCheck_TID = () => {
+  const navigate = useNavigate();
   const [tid, setTid] = useState(null);
   const [data, setData] = useState(null);
   const { eventName } = useParams();
 
   const apiUrl = String(import.meta.env.VITE_API_ADMIN);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("isLoggedIn")) {
+      navigate("/login");
+    } else {
+      
+    }
+  }, []);
+  
 
   const eventInfo = {
     web_minds: {

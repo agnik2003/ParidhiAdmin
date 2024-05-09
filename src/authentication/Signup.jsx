@@ -26,7 +26,7 @@ const Signup = ({ setAuthenticated }) => {
         );
         console.log(response.data); // Log the response from the backend
         setAuthenticated(true);
-        window.open("http://localhost:6001/login");
+        // window.open("http://localhost:6001/login");
         // navigate("https://localhost:6001/login");
       } catch (error) {
         console.error("Error signing up:", error);

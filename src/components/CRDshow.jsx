@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Crdstyle.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const CRDshow = () => {
+  const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
   const { eventName } = useParams();
 
@@ -39,13 +40,13 @@ const CRDshow = () => {
     line_trekker: {
       name: "Line Trekker",
       apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/line-trekker`,
-      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/coding/line-trekker/`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/line-trekker/`,
     },
 
     setu_bandhan: {
       name: "Setu Bandhan",
       apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/setu-bandhan`,
-      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/coding/setu-bandhan/`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/setu-bandhan/`,
     },
     track_o_treasure: {
       name: "Track o Treasure",
@@ -61,18 +62,18 @@ const CRDshow = () => {
     electriquest: {
       name: "Electriquest",
       apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/electri-quest`,
-      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/electri-quest/`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/electri-quest/`,
     },
 
     throne_of_bots_8kg: {
       name: "TOB 8kg",
       apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/war-8kg`,
-      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/war-8kg/`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/war-8kg/`,
     },
     throne_of_bots_15kg: {
       name: "TOB 15kg",
       apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/war-15kg`,
-      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/war-15kg/`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/war-15kg/`,
     },
 
     table_tennis: {
@@ -84,6 +85,11 @@ const CRDshow = () => {
       name: "Binge Quiz",
       apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/general/binge-quiz`,
       apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/general/binge-quiz/`,
+    },
+    carrom: {
+      name: "Carrom",
+      apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/general/carrom`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/general/carrom/`,
     },
   };
   const event = eventInfo[eventName];
@@ -144,9 +150,12 @@ const CRDshow = () => {
     }
   };
   useEffect(() => {
-    listOfParticipants();
+    if (!sessionStorage.getItem("isLoggedIn")) {
+      navigate("/login");
+    } else {
+      listOfParticipants();
+    }
   }, []);
-
   return (
     <div className="main">
       <div className="heading">

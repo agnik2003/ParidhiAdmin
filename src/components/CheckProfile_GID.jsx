@@ -1,17 +1,28 @@
-import  { useState } from "react";
+import  { useState , useEffect} from "react";
 import axios from "axios";
 import "./CheckProfile_GID.css";
+import { useParams, useNavigate } from "react-router-dom";
 
 const ProfileCheck_GID = () => {
+  const navigate = useNavigate();
   const [gid, setGid] = useState(null);
   const [data, setData] = useState(null);
 
   const apiUrl = String(import.meta.env.VITE_API_ADMIN);
 
+  useEffect(() => {
+    if (!sessionStorage.getItem("isLoggedIn")) {
+      navigate("/login");
+    } else {
+      
+    }
+  }, []);
+
+  const token = localStorage.getItem("token");
   const fetchData = async () => {
     try {
       const response = await axios.get(`${apiUrl}/check-gid/${gid}`);
-
+      console.log(token);
       if (response.status === 200) {
         setData(response.data);
         console.log(response);

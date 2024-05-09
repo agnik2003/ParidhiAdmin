@@ -1,6 +1,15 @@
-import React from "react";
+import { useState , useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Home = () => {
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!sessionStorage.getItem("isLoggedIn")) {
+          navigate("/login");
+        } else {
+          
+        }
+      }, []);
   return (
     <>
       <div

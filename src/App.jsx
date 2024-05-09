@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Route,
   RouterProvider,
@@ -21,67 +21,50 @@ const CheckProfile_GID = React.lazy(() =>
 );
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(false);
-
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        {!authenticated && (
-          <>
-            <Route
-              path="/"
-              element={<Signup setAuthenticated={setAuthenticated} />}
-            />
-            <Route
-              path="/signup"
-              element={<Signup setAuthenticated={setAuthenticated} />}
-            />
-            <Route path="/login" element={<Login />} />
-            <Route path="/ley" element={<Layout />}></Route>
-          </>
-        )}
-        {authenticated && (
-          <Route path="/" element={<Layout />}>
-            <Route path="" element={<Home />} />
-            <Route path="GIDshow" element={<GIDshow />} />
-            <Route path="CRDshow" element={<CRDshow />} />
-            <Route path="TIDshow" element={<TIDshow />} />
-            <Route path="CheckProfile_TID" element={<CheckProfile_TID />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="GIDshow" element={<GIDshow />} />
+          <Route path="CRDshow" element={<CRDshow />} />
+          <Route path="TIDshow" element={<TIDshow />} />
+          <Route path="CheckProfile_TID" element={<CheckProfile_TID />} />
 
-            <Route
-              path="CheckProfile_TID/:Domain/:eventName"
-              element={
-                <React.Suspense fallback={<Loader />}>
-                  <CheckProfile_TID />
-                </React.Suspense>
-              }
-            />
-            <Route
-              path="CheckProfile_GID"
-              element={
-                <React.Suspense fallback={<Loader />}>
-                  <CheckProfile_GID />
-                </React.Suspense>
-              }
-            />
-            <Route
-              path="TIDshow/:Domain/:eventName"
-              element={
-                <React.Suspense fallback={<Loader />}>
-                  <TIDshow />
-                </React.Suspense>
-              }
-            />
-            <Route
-              path="CRDshow/:Domain/:eventName"
-              element={
-                <React.Suspense fallback={<Loader />}>
-                  <CRDshow />
-                </React.Suspense>
-              }
-            />
-          </Route>
-        )}
+          <Route
+            path="CheckProfile_TID/:Domain/:eventName"
+            element={
+              <React.Suspense fallback={<Loader />}>
+                <CheckProfile_TID />
+              </React.Suspense>
+            }
+          />
+          <Route
+            path="CheckProfile_GID"
+            element={
+              <React.Suspense fallback={<Loader />}>
+                <CheckProfile_GID />
+              </React.Suspense>
+            }
+          />
+          <Route
+            path="TIDshow/:Domain/:eventName"
+            element={
+              <React.Suspense fallback={<Loader />}>
+                <TIDshow />
+              </React.Suspense>
+            }
+          />
+          <Route
+            path="CRDshow/:Domain/:eventName"
+            element={
+              <React.Suspense fallback={<Loader />}>
+                <CRDshow />
+              </React.Suspense>
+            }
+          />
+        </Route>
       </>
     )
   );
