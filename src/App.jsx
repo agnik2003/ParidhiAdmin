@@ -13,6 +13,7 @@ import GIDshow from "./components/GIDshow";
 import CheckProfile_TID from "./components/CheckProfile_TID";
 import Loader from "./components/loader/Loader";
 import Login from "./components/LogIn/Login";
+import Home from "./components/Home/Home";
 
 const TIDshow = React.lazy(() => import("./components/TIDshow"));
 const CheckProfile_GID = React.lazy(() =>
@@ -41,7 +42,7 @@ function App() {
         )}
         {authenticated && (
           <Route path="/" element={<Layout />}>
-            <Route path="" element={<GIDshow />} />
+            <Route path="" element={<Home />} />
             <Route path="GIDshow" element={<GIDshow />} />
             <Route path="CRDshow" element={<CRDshow />} />
             <Route path="TIDshow" element={<TIDshow />} />

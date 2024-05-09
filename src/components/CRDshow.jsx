@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 const CRDshow = () => {
   const [players, setPlayers] = useState([]);
-  const [running, setrunning] = useState(1);
   const { eventName } = useParams();
 
   const eventInfo = {
@@ -29,12 +28,12 @@ const CRDshow = () => {
     roboKlassiker: {
       name: "Robo Klassiker",
       apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/robo-klassiker`,
-      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/coding/robo-klassiker/`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/robo-klassiker/`,
     },
     triathlon: {
       name: "Triathlon",
       apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/triathlon`,
-      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/coding/triathlon/`,
+      apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/triathlon/`,
     },
 
     line_trekker: {
@@ -65,12 +64,12 @@ const CRDshow = () => {
       apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/electri-quest/`,
     },
 
-    tob8kg: {
+    throne_of_bots_8kg: {
       name: "TOB 8kg",
       apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/war-8kg`,
       apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/war-8kg/`,
     },
-    tob15kg: {
+    throne_of_bots_15kg: {
       name: "TOB 15kg",
       apiToGetList: `http://localhost:6001/megatronix/paridhi/admin/crd/robotics/war-15kg`,
       apiToSendPlayed: `http://localhost:6001/megatronix/paridhi/admin/crd/civil/war-15kg/`,
@@ -91,8 +90,8 @@ const CRDshow = () => {
 
   const listOfParticipants = async () => {
     try {
-      setrunning(running + 1);
-      console.log("Running", running);
+    
+      console.log(event.apiToGetList);
 
       const response = await axios.get(event.apiToGetList);
 
@@ -112,7 +111,9 @@ const CRDshow = () => {
   const handleAction = async (player) => {
     try {
       const updatedPlayer = { ...player, played: true };
+      console.log(updatedPlayer);
       console.log("Player Data with Played true:", updatedPlayer);
+      console.log("tid >>", updatedPlayer.tid);
       console.log(
         `${event.apiToSendPlayed}${updatedPlayer.tid}/${updatedPlayer.played}`
       );
@@ -139,7 +140,7 @@ const CRDshow = () => {
     if (confirmed) {
       handleAction(player);
     } else {
-      console.log("action was cancled");
+      console.log("action was cancelled");
     }
   };
   useEffect(() => {

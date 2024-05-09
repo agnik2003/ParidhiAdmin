@@ -9,11 +9,13 @@ const TIDshow = () => {
   const [paid, setPaid] = useState(false);
   const { eventName } = useParams();
 
+  const apiUrl = String(import.meta.env.VITE_API_ADMIN);
+
   const eventInfo = {
     web_minds: {
       name: "Web Minds",
-      apiToGetData: `http://localhost:6001/megatronix/paridhi/admin/crd/coding/web-minds`,
-      apiToSendData: ``,
+      apiToGetData: `check-tid/coding/web-minds`,
+      apiToSendData: `update-tid/coding/web-minds`,
     },
     code_quest: {
       name: "Codezen",
@@ -87,26 +89,17 @@ const TIDshow = () => {
       apiToSendData: ``,
     },
   };
-  const event = eventInfo[eventName];
+  const events = eventInfo[eventName];
 
-  console.log("TID", event);
   const fetchData = async (tid) => {
     try {
-      const response = await axios.get(`https://api/${tid}`);
-      // const response = {
-      //   id: 123,
-      //   teamname: "Team A",
-      //   selectedcodingevent: "codequest",
-      //   gid1: "abc123",
-      //   gid2: "def456",
-      //   number1: "9876543210",
-      //   tid: "tid123",
-      //   played: false,
-      //   paid: false,
-      // };
+      const response = await axios.get(
+        `${apiUrl}/${events.apiToGetData}/${tid}`
+      );
+
       if (response.status === 200) {
-        setData(response);
-        setPaid(response.paid);
+        setData(response.data);
+        setPaid(response.data.paid);
       } else if (response.status === 404) {
         alert("No data found");
       } else {
@@ -126,8 +119,15 @@ const TIDshow = () => {
     if (tid && data) {
       const updatedData = { ...data, paid: paid };
       console.log("Updated Data to be sent to the backend:", updatedData);
+      console.log(
+        "URL  to send tid paid >>",
+        `${apiUrl}/${events.apiToSendData}/${updatedData.tid}/${updatedData.paid}`
+      );
       try {
-        // Example: const response = axios.post('/your-backend-endpoint', updatedData)
+        const response = axios.put(
+          `${apiUrl}/${events.apiToSendData}/${updatedData.tid}/${updatedData.paid}`
+        );
+        console.log("this is response >>", response);
         if (response.status === 200) {
           alert("Data updated successfully");
         } else if (response.status === 400) {
@@ -195,14 +195,14 @@ const TIDshow = () => {
                   type="checkbox"
                   checked={paid}
                   onChange={handlePaidToggle}
+                  className="paid"
                 />
                 <span>Paid</span>
               </label>
             </div>
             <button
               onClick={(e) => {
-                e.preventDefault();
-                tidBankendHandler();
+                handleSubmit(e);
               }}
               type="submit"
             >

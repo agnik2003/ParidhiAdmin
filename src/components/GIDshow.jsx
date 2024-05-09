@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import "./Gidstyle.css";
 
@@ -7,9 +7,24 @@ const GIDshow = () => {
   const [data, setData] = useState(null);
   const [paid, setPaid] = useState(false);
 
+  const apiUrl = String(import.meta.env.VITE_API_ADMIN);
   const fetchData = async (gid) => {
     try {
-      const response = await axios.get(`https://api/${gid}`);
+      const response = await axios.get(`${apiUrl}/check-gid/${gid}`);
+      // const response = {
+      //   status: 200,
+      //   data: {
+      //     name: "Gopaljeet",
+      //     gid: "paridhi",
+      //     email: "Goaljeet@gmail.com",
+      //     department: "BCA",
+      //     college: "MSIT",
+      //     paid: true,
+      //     roll: "86",
+      //     year: "2024",
+      //     phoneNumber:"1223123123123"
+      //   },
+      // };
       if (response.status === 200) {
         setData(response.data);
         setPaid(response.data.paid);
@@ -33,9 +48,10 @@ const GIDshow = () => {
       const updatedData = { ...data, paid: paid };
       console.log("Updated Data to be sent to the backend:", updatedData);
       try {
-        const response = await axios.post(
-          "/your-backend-endpoint",
-          updatedData
+  
+
+        const response = await axios.put(
+          `${apiUrl}/update-gid/${updatedData.gid}/${updatedData.paid}`
         );
         if (response.status === 200) {
           alert("Data updated successfully");
@@ -70,6 +86,9 @@ const GIDshow = () => {
           <>
             <p>
               <strong>Name:</strong> {data.name}
+            </p>
+            <p>
+              <strong>GID:</strong> {data.gid}
             </p>
             <p>
               <strong>College:</strong> {data.college}
