@@ -71,7 +71,6 @@ const ProfileCheck_GID = () => {
         </div>
       )}
     </div>
-  );
-};
+  );}
 
 export default ProfileCheck_GID;
