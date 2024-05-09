@@ -176,17 +176,11 @@ const Navbar = () => {
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="TIDshow/manual_robotics/throne_of_bots_8kg"
+                    to="TIDshow/manual_robotics/triathlon"
                   >
-                    Throne of Bots 8kg
+                    Tristhlon
                   </NavLink>
-
-                  <NavLink
-                    className="cursor nested"
-                    to="TIDshow/manual_robotics/throne_of_bots_15kg"
-                  >
-                    Throne of Bots 15kg
-                  </NavLink>
+                 
                 </div>
               )}
             </div>
@@ -267,13 +261,13 @@ const Navbar = () => {
                 <div className="nested-dropdown">
                   <NavLink
                     className="cursor nested"
-                    to="TIDshow/combat_robotics/tob8kg"
+                    to="TIDshow/combat_robotics/throne_of_bots_8kg"
                   >
                     TOB 8kg
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="TIDshow/combat_robotics/tob15kg"
+                    to="TIDshow/combat_robotics/throne_of_bots_15kg"
                   >
                     TOB 15kg
                   </NavLink>
@@ -363,7 +357,7 @@ const Navbar = () => {
                 <div className="nested-dropdown">
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/manual_robotics/roboKlassikers"
+                    to="CRDshow/manual_robotics/roboKlassiker"
                   >
                     Robo Klassikers
                   </NavLink>
@@ -419,7 +413,7 @@ const Navbar = () => {
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/civil/Track_o_Treasure"
+                    to="CRDshow/civil/track_o_treasure"
                   >
                     Track o Treasure
                   </NavLink>
@@ -461,13 +455,13 @@ const Navbar = () => {
                 <div className="nested-dropdown">
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/gaming/combat_robotics/tob8kg"
+                    to="CRDshow/gaming/combat_robotics/throne_of_bots_8kg"
                   >
                     TOB 8kg
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/combat_robotics/tob15kg"
+                    to="CRDshow/combat_robotics/throne_of_bots_15kg"
                   >
                     TOB 15kg
                   </NavLink>
@@ -560,20 +554,20 @@ const Navbar = () => {
                 <div className="nested-dropdown">
                   <NavLink
                     className="cursor nested"
-                    to="CheckProfile_TID/manual_robotics/roboKlassikers"
+                    to="CheckProfile_TID/manual_robotics/roboKlassiker"
                   >
                     Robo Klassikers
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="CheckProfile_TID/manual_robotics/thron_of_bots_8kg"
+                    to="CheckProfile_TID/manual_robotics/throne_of_bots_8kg"
                   >
                     Throne of Bots 8kg
                   </NavLink>
 
                   <NavLink
                     className="cursor nested"
-                    to="CheckProfile_TID/manual_robotics/thron_of_bots_15kg"
+                    to="CheckProfile_TID/manual_robotics/throne_of_bots_15kg"
                   >
                     Throne of Bots 15kg
                   </NavLink>
@@ -615,7 +609,7 @@ const Navbar = () => {
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="CheckProfile_TID/civil/Track_o_Treasure"
+                    to="CheckProfile_TID/civil/track_o_treasure"
                   >
                     Track o Treasure
                   </NavLink>
@@ -658,13 +652,13 @@ const Navbar = () => {
                 <div className="nested-dropdown">
                   <NavLink
                     className="cursor nested"
-                    to="CheckProfile_TID/combat_robotics/tob8kg"
+                    to="CheckProfile_TID/combat_robotics/throne_of_bots_8kg"
                   >
                     TOB 8kg
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="CheckProfile_TID/combat_robotics/tob15kg"
+                    to="CheckProfile_TID/combat_robotics/throne_of_bots_15kg"
                   >
                     TOB 15kg
                   </NavLink>

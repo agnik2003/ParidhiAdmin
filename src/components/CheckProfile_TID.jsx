@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import "./CheckProfile_TID.css";
 import { useParams } from "react-router-dom";
@@ -28,7 +28,6 @@ const ProfileCheck_TID = () => {
       name: "Robo Klassiker",
       api: `check-tid/robotics/robo-klassiker`,
     },
-    
 
     line_trekker: {
       name: "Line Trekker",
@@ -53,11 +52,11 @@ const ProfileCheck_TID = () => {
       api: `check-tid/electrical/electri-quest`,
     },
 
-    tob8kg: {
+    throne_of_bots_8kg: {
       name: "TOB 8kg",
       api: `check-tid/robotics/war-8kg`,
     },
-    tob15kg: {
+    throne_of_bots_15kg: {
       name: "TOB 15kg",
       api: `check-tid/robotics/war-15kg`,
     },
@@ -118,20 +117,29 @@ const ProfileCheck_TID = () => {
             <strong>Number 1:</strong> {data.number1}
           </p>
           <p>
-            <strong>GID 1:</strong> {data.gid1}
+            <strong>GID 1:</strong> {data.gid1?data.gid1:"-"}
           </p>
           <p>
-            <strong>GID 2:</strong> {data.gid2}
+            <strong>GID 2:</strong> {data.gid2?data.gid2:"-"}
+          </p>
+          <p>
+            <strong>GID 3:</strong> {data.gid3?data.gid3:"-"}
+          </p>
+          <p>
+            <strong>GID 4:</strong> {data.gid4?data.gid4:"-"}
+          </p>
+          <p>
+            <strong>GID 5:</strong> {data.gid5?data.gid5:"-"}
           </p>
 
           <p>
             <strong>TID:</strong> {data.tid}
           </p>
           <p>
-            <strong>Played:</strong> {data.played}
+            <strong>Played:</strong> {data.played ? "Yes" : "No"}
           </p>
           <p>
-            <strong>Paid:</strong> {data.paid}
+            <strong>Paid:</strong> {data.paid ? "Yes" : "No"}
           </p>
         </div>
       )}

@@ -8,12 +8,12 @@ const ProfileCheck_GID = () => {
 
   const apiUrl = String(import.meta.env.VITE_API_ADMIN);
 
-  const fetchData = async (gid) => {
+  const fetchData = async () => {
     try {
       const response = await axios.get(`${apiUrl}/check-gid/${gid}`);
 
       if (response.status === 200) {
-        setData(response);
+        setData(response.data);
         console.log(response);
       } else if (response.status === 404) {
         alert("No data found");
@@ -25,11 +25,7 @@ const ProfileCheck_GID = () => {
     }
   };
 
-  const handleButtonClick = () => {
-    if (gid) {
-      fetchData(gid);
-    }
-  };
+
 
   return (
     <div className="profile-check-component">
@@ -40,33 +36,37 @@ const ProfileCheck_GID = () => {
           onChange={(e) => setGid(e.target.value)}
           placeholder="Enter TID"
         />
-        <button onClick={handleButtonClick}>Check Profile</button>
+        <button onClick={fetchData}>Check Profile</button>
       </div>
       {data && (
         <div className="profile-details">
+          
           <p>
-            <strong>Team Name:</strong> {data.teamname}
+            <strong>Name:</strong> {data.name}
           </p>
           <p>
-            <strong>Selected Coding Event:</strong> {data.selectedcodingevent}
+            <strong>GID:</strong> {data.gid}
           </p>
           <p>
-            <strong>GID 1:</strong> {data.gid1}
+            <strong>Email:</strong> {data.email}
           </p>
           <p>
-            <strong>GID 2:</strong> {data.gid2}
+            <strong>Department:</strong> {data.department}
           </p>
           <p>
-            <strong>Number 1:</strong> {data.number1}
+            <strong>Phone Number:</strong> {data.phoneNumber}
           </p>
           <p>
-            <strong>TID:</strong> {data.tid}
+            <strong>College:</strong> {data.college}
           </p>
           <p>
-            <strong>Played:</strong> {data.played}
+            <strong>Paid:</strong> {data.paid?"Yes":"No"}
           </p>
           <p>
-            <strong>Paid:</strong> {data.paid}
+            <strong>Roll No:</strong> {data.roll}
+          </p>
+          <p>
+            <strong>Year:</strong> {data.year}
           </p>
         </div>
       )}
