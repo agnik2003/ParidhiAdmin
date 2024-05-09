@@ -21,7 +21,7 @@ const CheckProfile_GID = React.lazy(() =>
 );
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(true);
+  const [authenticated, setAuthenticated] = useState(false);
 
   const router = createBrowserRouter(
     createRoutesFromElements(

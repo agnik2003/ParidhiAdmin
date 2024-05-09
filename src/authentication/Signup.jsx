@@ -1,5 +1,5 @@
-import  {  useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Signup.css";
 
@@ -44,14 +44,15 @@ const Signup = ({ setAuthenticated }) => {
       alert("Please enter a valid email address.");
     } else {
       const response = await axios.post(
-        `http://localhost:6001/megatronix/paridhi/user/generate-otp?name=${null}&email=${email}`,
+        `http://localhost:6001/megatronix/paridhi/user/generate-otp?name=megatron&email=${email}`,
         {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "*",
-            "Access-Control-Allow-Credentials": "true",
-          },
+          // headers: {
+          //   "Access-Control-Allow-Origin": "*",
+          //   "Access-Control-Allow-Headers": "*",
+          //   "Access-Control-Allow-Credentials": "true",
+          // },
         }
+        
       );
       console.log(response);
 
@@ -169,7 +170,7 @@ const Signup = ({ setAuthenticated }) => {
         <div
           style={{
             // margin: "0 6rem 0 2rem",
-            marginBlock:'12px',
+            marginBlock: "12px",
             fontSize: "1.5rem",
           }}
         >
@@ -202,6 +203,7 @@ const Signup = ({ setAuthenticated }) => {
           </div>
         </div>
       </form>
+      <Link to={"/login"}>LogIN</Link>
     </div>
   );
 };
