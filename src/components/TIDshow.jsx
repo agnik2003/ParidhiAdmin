@@ -36,11 +36,14 @@ const TIDshow = () => {
       apiToGetData: `check-tid/coding/codezen`,
       apiToSendData: `update-tid/coding/codezen`,
     },
-
     roboKlassiker: {
       name: "Robo Klassiker",
       apiToGetData: `check-tid/robotics/robo-klassiker`,
       apiToSendData: `update-tid/robotics/robo-klassiker`,
+    },
+    trilathon:{
+      name:"Trilathon",
+      api:``,
     },
     throne_of_bots_8kg: {
       name: "Throne of Bots",
