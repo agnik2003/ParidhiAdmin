@@ -43,7 +43,8 @@ const TIDshow = () => {
     },
     trilathon:{
       name:"Trilathon",
-      api:``,
+      apiToGetData: `check-tid/robotics/trilathon`,
+      apiToSendData: `update-tid/robotics/trilathon`,
     },
     throne_of_bots_8kg: {
       name: "Throne of Bots",
