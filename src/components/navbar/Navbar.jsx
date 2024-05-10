@@ -361,8 +361,14 @@ const Navbar = () => {
                   >
                     Robo Klassikers
                   </NavLink>
-
                   <NavLink
+                    className="cursor nested"
+                    to="CRDshow/manual_robotics/trilathon"
+                  >
+                    Trilathon
+                  </NavLink>
+
+{/*                   <NavLink
                     className="cursor nested"
                     to="CRDshow/manual_robotics/throne_of_bots_8kg"
                   >
@@ -374,7 +380,7 @@ const Navbar = () => {
                     to="CRDshow/manual_robotics/throne_of_bots_15kg"
                   >
                     Throne of Bots 15 kg
-                  </NavLink>
+                  </NavLink> */}
                 </div>
               )}
             </div>
