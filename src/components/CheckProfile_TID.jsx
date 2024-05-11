@@ -79,6 +79,10 @@ const ProfileCheck_TID = () => {
       name: "Binge Quiz",
       api: `check-tid/general/binge-quiz`,
     },
+     binge_quiz: {
+      name: "Carrom",
+      api: `check-tid/general/carrom`,
+    },
   };
   const event = eventInfo[eventName];
 
