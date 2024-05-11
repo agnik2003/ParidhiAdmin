@@ -175,7 +175,7 @@ const TIDshow = () => {
               <strong>Team Name:</strong> {data.teamname}
             </p>
             <p>
-              <strong>Selected Coding Event:</strong> {data.selectedcodingevent}
+              <strong>Selected Event:</strong> {data.selectedcodingevent}
             </p>
             <p>
               <strong>GID 1:</strong> {data.gid1}
