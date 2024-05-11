@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./CheckProfile_TID.css";
 import { useParams, useNavigate } from "react-router-dom";
@@ -14,11 +14,8 @@ const ProfileCheck_TID = () => {
   useEffect(() => {
     if (!sessionStorage.getItem("isLoggedIn")) {
       navigate("/login");
-    } else {
-      
     }
   }, []);
-  
 
   const eventInfo = {
     web_minds: {
@@ -79,7 +76,7 @@ const ProfileCheck_TID = () => {
       name: "Binge Quiz",
       api: `check-tid/general/binge-quiz`,
     },
-     binge_quiz: {
+    carrom: {
       name: "Carrom",
       api: `check-tid/general/carrom`,
     },
@@ -131,19 +128,19 @@ const ProfileCheck_TID = () => {
             <strong>Number 1:</strong> {data.number1}
           </p>
           <p>
-            <strong>GID 1:</strong> {data.gid1?data.gid1:"-"}
+            <strong>GID 1:</strong> {data.gid1 ? data.gid1 : "-"}
           </p>
           <p>
-            <strong>GID 2:</strong> {data.gid2?data.gid2:"-"}
+            <strong>GID 2:</strong> {data.gid2 ? data.gid2 : "-"}
           </p>
           <p>
-            <strong>GID 3:</strong> {data.gid3?data.gid3:"-"}
+            <strong>GID 3:</strong> {data.gid3 ? data.gid3 : "-"}
           </p>
           <p>
-            <strong>GID 4:</strong> {data.gid4?data.gid4:"-"}
+            <strong>GID 4:</strong> {data.gid4 ? data.gid4 : "-"}
           </p>
           <p>
-            <strong>GID 5:</strong> {data.gid5?data.gid5:"-"}
+            <strong>GID 5:</strong> {data.gid5 ? data.gid5 : "-"}
           </p>
 
           <p>

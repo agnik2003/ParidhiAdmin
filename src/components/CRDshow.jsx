@@ -7,96 +7,94 @@ const CRDshow = () => {
   const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
   const { eventName } = useParams();
- const apiUrl = String(import.meta.env.VITE_API_ADMIN);
+  const apiUrl = String(import.meta.env.VITE_API_ADMIN);
   const eventInfo = {
     web_minds: {
       name: "Web Minds",
-      apiToGetList: `${apiUrl}crd/coding/web-minds`,
-      apiToSendPlayed: `${apiUrl}crd/coding/web-minds/`,
+      apiToGetList: `${apiUrl}/crd/coding/web-minds`,
+      apiToSendPlayed: `${apiUrl}/crd/coding/web-minds/`,
     },
     code_quest: {
       name: "Code Quest",
-      apiToGetList: `${apiUrl}crd/coding/code-quest`,
-      apiToSendPlayed: `${apiUrl}crd/coding/code-quest/`,
+      apiToGetList: `${apiUrl}/crd/coding/code-quest`,
+      apiToSendPlayed: `${apiUrl}/crd/coding/code-quest/`,
     },
     codezen: {
       name: "CodeZen",
-      apiToGetList: `${apiUrl}crd/coding/codezen`,
-      apiToSendPlayed: `${apiUrl}crd/coding/codezen/`,
-      api: ``,
+      apiToGetList: `${apiUrl}/crd/coding/codezen`,
+      apiToSendPlayed: `${apiUrl}/crd/coding/codezen/`,
     },
 
     roboKlassiker: {
       name: "Robo Klassiker",
-      apiToGetList: `${apiUrl}crd/robotics/robo-klassiker`,
-      apiToSendPlayed: `${apiUrl}crd/robotics/robo-klassiker/`,
+      apiToGetList: `${apiUrl}/crd/robotics/robo-klassiker`,
+      apiToSendPlayed: `${apiUrl}/crd/robotics/robo-klassiker/`,
     },
     triathlon: {
       name: "Triathlon",
-      apiToGetList: `${apiUrl}crd/robotics/triathlon`,
-      apiToSendPlayed: `${apiUrl}crd/robotics/triathlon/`,
+      apiToGetList: `${apiUrl}/crd/robotics/triathlon`,
+      apiToSendPlayed: `${apiUrl}/crd/robotics/triathlon/`,
     },
 
     line_trekker: {
       name: "Line Trekker",
-      apiToGetList: `${apiUrl}crd/robotics/line-trekker`,
-      apiToSendPlayed: `${apiUrl}crd/robotics/line-trekker/`,
+      apiToGetList: `${apiUrl}/crd/robotics/line-trekker`,
+      apiToSendPlayed: `${apiUrl}/crd/robotics/line-trekker/`,
     },
 
     setu_bandhan: {
       name: "Setu Bandhan",
-      apiToGetList: `${apiUrl}crd/robotics/setu-bandhan`,
-      apiToSendPlayed: `${apiUrl}crd/civil/setu-bandhan/`,
+      apiToGetList: `${apiUrl}/crd/civil/setu-bandhan`,
+      apiToSendPlayed: `${apiUrl}/crd/civil/setu-bandhan/`,
     },
     track_o_treasure: {
       name: "Track o Treasure",
-      apiToGetList: `${apiUrl}crd/civil/tot`,
-      apiToSendPlayed: `${apiUrl}crd/civil/tot/`,
+      apiToGetList: `${apiUrl}/crd/civil/tot`,
+      apiToSendPlayed: `${apiUrl}/crd/civil/tot/`,
     },
     mega_arch: {
       name: "Mega Arch",
-      apiToGetList: `${apiUrl}crd/civil/mega-arch`,
-      apiToSendPlayed: `${apiUrl}crd/civil/mega-arch/`,
+      apiToGetList: `${apiUrl}/crd/civil/mega-arch`,
+      apiToSendPlayed: `${apiUrl}/crd/civil/mega-arch/`,
     },
 
     electriquest: {
       name: "Electriquest",
-      apiToGetList: `${apiUrl}crd/civil/electri-quest`,
-      apiToSendPlayed: `${apiUrl}crd/robotics/electri-quest/`,
+      apiToGetList: `${apiUrl}/crd/electrical/electri-quest`,
+      apiToSendPlayed: `${apiUrl}/crd/electrical/electri-quest/`,
     },
 
     throne_of_bots_8kg: {
       name: "TOB 8kg",
-      apiToGetList: `${apiUrl}crd/robotics/war-8kg`,
-      apiToSendPlayed: `${apiUrl}crd/robotics/war-8kg/`,
+      apiToGetList: `${apiUrl}/crd/robotics/war-8kg`,
+      apiToSendPlayed: `${apiUrl}/crd/robotics/war-8kg/`,
     },
     throne_of_bots_15kg: {
       name: "TOB 15kg",
-      apiToGetList: `${apiUrl}crd/robotics/war-15kg`,
-      apiToSendPlayed: `${apiUrl}crd/robotics/war-15kg/`,
+      apiToGetList: `${apiUrl}/crd/robotics/war-15kg`,
+      apiToSendPlayed: `${apiUrl}/crd/robotics/war-15kg/`,
     },
 
     table_tennis: {
       name: "Table Tennis",
-      apiToGetList: `${apiUrl}crd/general/table-tennis`,
-      apiToSendPlayed: `${apiUrl}crd/general/table-tennis/`,
+      apiToGetList: `${apiUrl}/crd/general/table-tennis`,
+      apiToSendPlayed: `${apiUrl}/crd/general/table-tennis/`,
     },
     binge_quiz: {
       name: "Binge Quiz",
-      apiToGetList: `${apiUrl}crd/general/binge-quiz`,
-      apiToSendPlayed: `${apiUrl}crd/general/binge-quiz/`,
+      apiToGetList: `${apiUrl}/crd/general/binge-quiz`,
+      apiToSendPlayed: `${apiUrl}/crd/general/binge-quiz/`,
     },
     carrom: {
       name: "Carrom",
-      apiToGetList: `${apiUrl}crd/general/carrom`,
-      apiToSendPlayed: `${apiUrl}crd/general/carrom/`,
+      apiToGetList: `${apiUrl}/crd/general/carrom`,
+      apiToSendPlayed: `${apiUrl}/crd/general/carrom/`,
     },
   };
   const event = eventInfo[eventName];
 
   const listOfParticipants = async () => {
     try {
-    
       console.log(event.apiToGetList);
 
       const response = await axios.get(event.apiToGetList);
@@ -127,8 +125,6 @@ const CRDshow = () => {
         `${event.apiToSendPlayed}${updatedPlayer.tid}/${updatedPlayer.played}`
       );
 
-      // const response = { status: 200 };
-
       if (response.status === 200) {
         listOfParticipants();
       } else if (response.status === 400) {
@@ -155,7 +151,8 @@ const CRDshow = () => {
     } else {
       listOfParticipants();
     }
-  }, []);
+  }, [event]);
+
   return (
     <div className="main">
       <div className="heading">

@@ -1,7 +1,8 @@
-import { useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Gidstyle.css";
 import { useParams, useNavigate } from "react-router-dom";
+import { set } from "firebase/database";
 
 const GIDshow = () => {
   const navigate = useNavigate();
@@ -15,26 +16,12 @@ const GIDshow = () => {
     if (!sessionStorage.getItem("isLoggedIn")) {
       navigate("/login");
     } else {
-      
     }
   }, []);
   const fetchData = async (gid) => {
     try {
       const response = await axios.get(`${apiUrl}/check-gid/${gid}`);
-      // const response = {
-      //   status: 200,
-      //   data: {
-      //     name: "Gopaljeet",
-      //     gid: "paridhi",
-      //     email: "Goaljeet@gmail.com",
-      //     department: "BCA",
-      //     college: "MSIT",
-      //     paid: true,
-      //     roll: "86",
-      //     year: "2024",
-      //     phoneNumber:"1223123123123"
-      //   },
-      // };
+
       if (response.status === 200) {
         setData(response.data);
         setPaid(response.data.paid);
@@ -58,13 +45,14 @@ const GIDshow = () => {
       const updatedData = { ...data, paid: paid };
       console.log("Updated Data to be sent to the backend:", updatedData);
       try {
-  
-
         const response = await axios.put(
           `${apiUrl}/update-gid/${updatedData.gid}/${updatedData.paid}`
         );
         if (response.status === 200) {
           alert("Data updated successfully");
+          setData(null);
+          setPaid(false);
+          setGid(null);
         } else if (response.status === 400) {
           alert("Some error occurred");
         }

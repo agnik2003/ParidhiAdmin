@@ -467,7 +467,7 @@ const Navbar = () => {
                 <div className="nested-dropdown">
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/gaming/combat_robotics/throne_of_bots_8kg"
+                    to="CRDshow/combat_robotics/throne_of_bots_8kg"
                   >
                     TOB 8kg
                   </NavLink>
