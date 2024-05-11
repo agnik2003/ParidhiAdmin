@@ -178,7 +178,7 @@ const Navbar = () => {
                     className="cursor nested"
                     to="TIDshow/manual_robotics/triathlon"
                   >
-                    Tristhlon
+                    Triathlon
                   </NavLink>
                  
                 </div>
@@ -285,15 +285,21 @@ const Navbar = () => {
                 <div className="nested-dropdown">
                   <NavLink
                     className="cursor nested"
-                    to="TIDshow/genral/table_tennis"
+                    to="TIDshow/general/table_tennis"
                   >
                     Table Tennis
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="TIDshow/genral/binge_quiz"
+                    to="TIDshow/general/binge_quiz"
                   >
                     Binge Quiz
+                  </NavLink>
+                   <NavLink
+                    className="cursor nested"
+                    to="TIDshow/general/carrom"
+                  >
+                    Carrom
                   </NavLink>
                 </div>
               )}
@@ -485,15 +491,21 @@ const Navbar = () => {
                 <div className="nested-dropdown">
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/genral/table_tennis"
+                    to="CRDshow/general/table_tennis"
                   >
                     Table Tennis
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="CRDshow/genral/binge_quiz"
+                    to="CRDshow/general/binge_quiz"
                   >
                     Binge Quiz
+                  </NavLink>
+                   <NavLink
+                    className="cursor nested"
+                    to="CRDshow/general/carrom"
+                  >
+                    Carrom
                   </NavLink>
                 </div>
               )}
@@ -682,15 +694,21 @@ const Navbar = () => {
                 <div className="nested-dropdown">
                   <NavLink
                     className="cursor nested"
-                    to="CheckProfile_TID/genral/table_tennis"
+                    to="CheckProfile_TID/general/table_tennis"
                   >
                     Table Tennis
                   </NavLink>
                   <NavLink
                     className="cursor nested"
-                    to="CheckProfile_TID/genral/binge_quiz"
+                    to="CheckProfile_TID/general/binge_quiz"
                   >
                     Binge Quiz
+                  </NavLink>
+                  <NavLink
+                    className="cursor nested"
+                    to="CheckProfile_TID/general/carrom"
+                  >
+                    Carrom
                   </NavLink>
                 </div>
               )}
